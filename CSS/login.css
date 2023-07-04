@@ -79,7 +79,7 @@ main h2{
     margin-top: 20px;
 }
 
-main a{
+main .acessar{
     text-decoration: none;
     text-align: center;
     font-size: .9em;
@@ -95,8 +95,22 @@ main a{
     border-radius: 10px;
     margin-top: 20px;    
 }
+main .criarConta{
+    text-decoration: underline;
+    text-align: center;
+    font-size: .9em;
+    width: 30%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #1C99E0;
+    font-weight: bolder;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
 
-.input{
+input{
     background-color: #FCFEFF;
     width: 510px;
     height: 54px;
