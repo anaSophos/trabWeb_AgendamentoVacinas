@@ -2,11 +2,7 @@
     margin: 0;
     border: 0;
     padding: 0;
-<<<<<<< HEAD
     font-family: 'Montserrat', sans-serif;
-=======
-    font-family: sans-serif;
->>>>>>> e3546d8529c50a67e28666e3a4e8a4279d1e0c26
 }
 /*cabeçalho*/
 header{
@@ -31,11 +27,8 @@ header figure img{
 header a{
     color: white;
     text-decoration: none;
-<<<<<<< HEAD
     font-weight: bolder;
-=======
     font-weight: bold;
->>>>>>> e3546d8529c50a67e28666e3a4e8a4279d1e0c26
     margin: 0 15px;
 }
 
@@ -102,8 +95,4 @@ footer{
     padding: 40px 50px;
     font-size: 20px;
     color: black;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> e3546d8529c50a67e28666e3a4e8a4279d1e0c26
