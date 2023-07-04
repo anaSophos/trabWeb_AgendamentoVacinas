@@ -75,11 +75,33 @@ main{
     align-items: center;
 }
 
+main h2{
+    margin-top: 20px;
+}
+
+main a{
+    text-decoration: none;
+    text-align: center;
+    font-size: .9em;
+    width: 30%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    font-weight: bolder;
+    background-color: #1C99E0;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;    
+}
+
 .input{
     background-color: #FCFEFF;
     width: 510px;
     height: 54px;
     border-radius: 18px;
+    margin-top: 15px;
 }
 /*rodapé*/
 footer{
