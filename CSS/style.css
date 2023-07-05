@@ -53,6 +53,10 @@ main{
     font-size: .8em;
     margin: auto;
 }
+input{
+    background-color: transparent;
+    width: 500px ;
+}
 
 .lupa, .user-icon{
     width: 30px;
