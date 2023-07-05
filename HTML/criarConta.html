@@ -6,8 +6,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/login.css">
-    <title>Tela de login</title>
+    <link rel="stylesheet" href="../CSS/criarConta.css">
+    <title>Criar Conta</title>/
 </head>
 <body>
     <header>
@@ -16,7 +16,7 @@
         </figure>
 
         <nav>
-            <a href="./">Consultar vacina</a>
+            <a href="../HTML/index.html">Consultar vacina</a>
             <a href="../HTML/meusAgendamentos.html">Meus agendamentos</a>
             <a href="#" class="user-icon">
                 <img src="../assets/homem-usuario.png">
@@ -24,15 +24,21 @@
         </nav>
     </header>
 
-    <h1>Login no sistema</h1>
+    <h1>Criar Conta</h1>
     <main>
         <h2>Login: *</h2>
         <input type="email" placeholder=" ex: maria.apare@hotmail.com">
         <h2>Senha : *</h2>
         <input type="text" placeholder=" ex: Mar.20">
+        <h2>Confirmar Senha : *</h2>
+        <input type="text" placeholder=" ex: Mar.20">
+        <h2>Perfil de Usuário : *</h2>
+        <select name="select">
+            <option value="1-Usuário">1 - Usuário</option>
+            <option value="2- Administrador">2- Administrador</option>
+        </select>
 
-        <a class="acessar" href="../HTML/meusAgendamentos.html"><span>ACESSAR</span></a>
-        <a class="criarConta" href="../HTML/criarConta.html"><span>Criar conta</span></a>
+        <a class="criar_Conta" href="#"><span>Criar Conta</span></a>
     </main>
     <footer>
         <p class="rodape">Fique tranquilo, seus dados estão protegidos de acordo com nossa Política de Privacidade</p>
