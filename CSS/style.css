@@ -55,6 +55,7 @@ main{
 input{
     background-color: transparent;
     width: 1150px ;
+    outline: 0;
 }
 
 .lupa, .user-icon{

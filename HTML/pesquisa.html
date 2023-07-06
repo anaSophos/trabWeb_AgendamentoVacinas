@@ -64,6 +64,11 @@ main{
     font-size: .8em;
     margin: auto;
 }
+input{
+    background-color: transparent;
+    width: 1150px;
+    outline: 0;
+}
 
 .lupa, .user-icon{
     width: 30px;
@@ -87,6 +92,7 @@ main{
   margin-top: 20px;
   padding: 10px;
   border-radius: 5px;
+  font-weight: bolder;
 }
 </style>
 
@@ -109,7 +115,7 @@ main{
 
     <main>
         <div class="search-bar">
-            <span>Pesquise a vacina que você  deseja encontrar</span>
+            <input type="search" placeholder=" Pesquise a vacina que você deseja encontrar">
 
             <a href="#" class="lupa">
                 <img src="../assets/lupa.png">
