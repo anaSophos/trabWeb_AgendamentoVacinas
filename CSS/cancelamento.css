@@ -57,7 +57,7 @@ h1{
     color: #13293D;
     text-align: center;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 main{
@@ -69,55 +69,23 @@ main{
     border: 1px solid #9D9CE4;
     border-radius: 30px;
     width: 896px;
-    height: 481px;
+    height: 600px;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
 }
 
-main .acessar{
-    text-decoration: none;
-    text-align: center;
-    font-size: .9em;
-    width: 30%;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: white;
-    font-weight: bolder;
-    background-color: #1C99E0;
-    padding: 10px 20px;
-    border-radius: 10px;
-    margin-top: 20px;    
-}
-main .criarConta{
-    text-decoration: underline;
-    text-align: center;
-    font-size: .9em;
-    width: 30%;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: #1C99E0;
-    font-weight: bolder;
-    padding: 10px 20px;
+main h2{
     margin-top: 20px;
+    font-weight: bolder;
 }
 
-label{
-    font-weight: 2em;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-input{
+select{
     background-color: #FCFEFF;
     width: 510px;
     height: 54px;
     border-radius: 18px;
-    margin-top: 5px;
+    margin-top: 15px;    
 }
 /*rodapé*/
 footer{
