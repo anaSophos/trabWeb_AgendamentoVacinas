@@ -67,7 +67,7 @@ main{
     justify-content: center;
     background-color: #E8F1F3;
     border: 1px solid #9D9CE4;
-    border-radius: 30px;
+    border-radius: 15px;
     width: 896px;
     height: 600px;
     margin-left: auto;
@@ -99,7 +99,7 @@ select, input{
     background-color: #FCFEFF;
     width: 510px;
     height: 54px;
-    border-radius: 18px;
+    border-radius: 12px;
     margin-top: 15px;    
 }
 /*rodapé*/
