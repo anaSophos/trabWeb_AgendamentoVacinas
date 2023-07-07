@@ -198,7 +198,7 @@ header a{
     font-weight: bolder;
     font-weight: bold;
     margin: 0 5px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 nav figure img{
@@ -234,7 +234,7 @@ main{
     border: 1px solid #9D9CE4;
     border-radius: 12px;
     width: 90%;
-    height: 400px;
+    height: 700px;
     padding-bottom: 200px;
     margin: auto;
     position: relative;
@@ -304,10 +304,12 @@ label{
     display: flex;
     flex-wrap: wrap;
     gap: 40px 0;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .two-col{
-    width: 55%;
+    width: 300px;
     margin-right: 4%;
     display:flex;
     flex-direction: column;
@@ -316,6 +318,7 @@ label{
 
 .two-col input, .one-col input{
     border-radius: 10px;
+    width: 300px;
     height: 54px;
     padding: 0 10px;
     box-sizing: border-box;
