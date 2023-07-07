@@ -260,7 +260,7 @@
         text-decoration: none;
         text-align: center;
         font-size: .9em;
-        width: 30%;
+        width: 40%;
         height: 30px;
         display: flex;
         align-items: center;
@@ -277,13 +277,13 @@
         text-decoration: none;
         text-align: center;
         font-size: .9em;
-        width: 30%;
+        width: 40%;
         height: 30px;
         display: flex;
         align-items: center;
         justify-content:center;
         color: #1C99E0;
-        border: 2px solid #1C99E0;
+        border: 1px solid #1C99E0;
         font-weight: bolder;
         background-color: white;
         padding: 10px 20px;

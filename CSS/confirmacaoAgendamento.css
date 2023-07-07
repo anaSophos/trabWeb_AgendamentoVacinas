@@ -79,6 +79,7 @@
     .mensagem img{
         width: 20px;
         max-width: 20px;
+        margin-left: 10px;
     }
 
     .mensagem p{
@@ -227,9 +228,9 @@
         justify-content: center;
         background-color: #1C99E0;
         border: 1px solid #9D9CE4;
-        width: 30%;
-        height: 30px;
-        border-radius: 18px;
+        width: 40%;
+        height: 40px;
+        border-radius: 10px;
         margin-top: 60px;
         font-size: .9em;
         color: white;
@@ -244,9 +245,9 @@
         justify-content: center;
         background-color: white;
         border: 1px solid #9D9CE4;
-        width: 30%;
-        height: 30px;
-        border-radius: 18px;
+        width: 40%;
+        height: 40px;
+        border-radius: 10px;
         margin-top: 10px;
         font-size: .9em;
         color: #13293D;

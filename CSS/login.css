@@ -215,8 +215,8 @@ footer{
         text-decoration: none;
         text-align: center;
         font-size: .9em;
-        width: 30%;
-        height: 30px;
+        width: 40%;
+        height: 40px;
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -230,7 +230,7 @@ footer{
         text-decoration: underline;
         text-align: center;
         font-size: .9em;
-        width: 30%;
+        width: 40%;
         height: 30px;
         display: flex;
         align-items: center;
