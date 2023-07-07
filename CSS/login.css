@@ -110,6 +110,7 @@ label{
     font-weight: 2em;
     font-weight: bold;
     margin-bottom: 5px;
+    margin-top: 15px;
 }
 
 input{
@@ -118,7 +119,7 @@ input{
     height: 54px;
     border-radius: 12px;
     margin-top: 5px;
-    padding: 5px ;
+    padding: 10px ;
 }
 /*rodapé*/
 footer{
