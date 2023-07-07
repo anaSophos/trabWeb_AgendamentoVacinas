@@ -233,14 +233,14 @@ input{
         display: flex;
         flex-wrap: wrap;
         gap: 1%;
-        justify-content: space-between;
+        justify-content: space-around;
     }
     
     .card{
         padding: 10px;
         box-sizing: border-box;
-        height: 260px; /*260px*/
-        width: 40%;
+        height: 290px; /*260px*/
+        width: 45%;
         border: 2px solid #9D9CE4;
         border-radius: 15px;
         margin-bottom: 20px;
