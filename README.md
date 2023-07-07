@@ -6,4 +6,4 @@ Após feito alterações no código, dar os comandos na seguinte sequência:
  <p>git push</p>
 
 Após o git push, as alterações serão de fato efetuadas. 
-<p>Git Pages: https://anasophos.github.io/trabWeb_AgendamentoVacinas/HTML/index.html</p>
+<p>Git Pages: https://anasophos.github.io/trabWeb_AgendamentoVacinas/HTML/tela_inicial.html</p>

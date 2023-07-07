@@ -102,6 +102,8 @@ select, input{
     border-radius: 12px;
     margin-top: 15px;    
     padding: 10px;
+    font-size: 15px;
+    font-weight: bolder;
 }
 
 label{
