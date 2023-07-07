@@ -188,7 +188,7 @@ footer{
         font-weight: bolder;
         font-weight: bold;
         margin: 0 5px;
-        font-size: 12px;
+        font-size: 10px;
     }
     
     nav figure img{
@@ -232,7 +232,7 @@ footer{
     .cards-container{
         padding: 10px;
         box-sizing: border-box;
-        height: 405px;
+        height: 420px;
         width: 330px;
         border: 1px solid #9D9CE4;
         border-radius: 12px;
