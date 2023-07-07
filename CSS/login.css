@@ -215,8 +215,8 @@ footer{
         text-decoration: none;
         text-align: center;
         font-size: .9em;
-        width: 40%;
-        height: 40px;
+        width: 60%;
+        height: 30px;
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -230,7 +230,7 @@ footer{
         text-decoration: underline;
         text-align: center;
         font-size: .9em;
-        width: 40%;
+        width: 60%;
         height: 30px;
         display: flex;
         align-items: center;
@@ -249,8 +249,8 @@ footer{
     
     input{
         background-color: #FCFEFF;
-        width: 200px;
-        height: 54px;
+        width: 20em;
+        height: 3em;
         border-radius: 12px;
         margin-top: 5px;
         padding: 10px;
