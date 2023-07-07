@@ -101,7 +101,15 @@ select, input{
     height: 54px;
     border-radius: 12px;
     margin-top: 15px;    
+    padding: 10px;
 }
+
+label{
+    font-weight: 3em;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
 /*rodapé*/
 footer{
     margin-top: 144px;
