@@ -318,7 +318,7 @@
 
     .two-col input, .one-col input{
         border-radius: 10px;
-        width: 350px;
+        min-width: 22.8em;
         height: 54px;
         padding: 0 10px;
         box-sizing: border-box;
