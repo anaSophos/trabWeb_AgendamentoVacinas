@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import Vaccine from '../models/Vaccine'
+import Vaccine from '../models/Vaccine.js'
 
 
 export default class VaccineController {
@@ -31,7 +31,8 @@ export default class VaccineController {
             const newVac = {
                 name,
                 description,
-                qty
+                qty,
+               
             };
 
             const vacCreated = await Vaccine.create(newVac);
@@ -40,6 +41,7 @@ export default class VaccineController {
         } catch (e) {
             res.status(500).json({ 'message': e.message });
         }
+
     }
 
     static async updateVac(req, res) {
