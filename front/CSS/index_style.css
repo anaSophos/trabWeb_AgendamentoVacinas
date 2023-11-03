@@ -87,7 +87,7 @@ input{
 .card{
     padding: 10px;
     box-sizing: border-box;
-    height: 280px; /*260px*/
+    height: 250px; /*260px*/
     width: 23%;
     border: 2px solid #9D9CE4;
     border-radius: 15px;

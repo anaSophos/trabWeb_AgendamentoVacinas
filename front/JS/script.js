@@ -1,12 +1,12 @@
 let vacinas = [
-    {id: 1,nome: "Covid 19",fila: 1,vagas: 9,hora: "08:00",local: "Posto de Saude Rinatinha"}, //mudar os dados dps
-    {id: 2,nome: "Gripe",fila: 1,vagas: 9,hora: "07:00",local: "Posto de Saude Maria das Graças"},
-    {id: 3,nome: "Hepatite B ",fila: 1,vagas: 9,hora: "11:00",local: "Posto de Saúde Jose Manoel da Anunciacao"},
-    {id: 4,nome: "Covid 19",fila: 1,vagas: 9,hora: "10:00",local: "Posto de Saude Pedro Calvacante"},
-    {id: 5,nome: "Covid 19",fila: 1,vagas: 9,hora: "11:30",local: "Posto de Saude Santa Fé"},
-    {id: 6,nome: "Covid 19",fila: 1,vagas: 9,hora: "15:00",local: "Posto de Saude Espirito Santo"},
-    {id: 7,nome: "Covid 19",fila: 1,vagas: 9,hora: "16:00",local: "Posto de Saude Enf. Zezinha"},
-    {id: 8,nome: "Covid 19",fila: 1,vagas: 9,hora: "9:40",local: "Posto de Saude Rinatinha"}
+    {id: 1,nome: "Covid 19",vagas: 9,hora: "09:00",local: "Posto de Saude Rinatinha"},
+    {id: 2,nome: "Gripe",vagas: 9,hora: "09:00",local: "Posto de Saude Maria das Graças"},
+    {id: 3,nome: "Hepatite B ",vagas: 9,hora: "15:00",local: "Posto de Saúde Jose Manoel da Anunciacao"},
+    {id: 4,nome: "Covid 19",vagas: 9,hora: "09:00",local: "Posto de Saude Pedro Calvacante"},
+    {id: 5,nome: "Covid 19",vagas: 9,hora: "15:00",local: "Posto de Saude Santa Fé"},
+    {id: 6,nome: "Covid 19",vagas: 9,hora: "09:00",local: "Posto de Saude Espirito Santo"},
+    {id: 7,nome: "Covid 19",vagas: 9,hora: "15:00",local: "Posto de Saude Enf. Zezinha"},
+    {id: 8,nome: "Covid 19",vagas: 9,hora: "09:00",local: "Posto de Saude Rinatinha"}
 ]
 
 
@@ -23,7 +23,6 @@ function buscaVacinas(){
     vacinas.map((item)=> {
         let id = item.id
         let nome = item.nome
-        let fila = item.fila
         let vagas = item.vagas
         let hora = item.hora
         let local = item.local
@@ -34,7 +33,6 @@ function buscaVacinas(){
                 <figure>
                     <img src="../assets/syringe.png" alt="">
                     <span>${nome}</span>
-                    <span class="fila">${fila} pessoas na fila</span>
                 </figure>
         
                 <div class="card-infos">
@@ -188,7 +186,6 @@ function carregaAgendamentos(){
     agendamentos.map((item)=> {
         let id = item.id
         let nome = item.nome
-        let fila = item.fila
         let vagas = item.vagas
         let hora = item.hora
         let local = item.local
@@ -199,8 +196,6 @@ function carregaAgendamentos(){
                 <figure class="people-row">
                     <img src="../assets/pessoas_em_fila.jpg" alt="">
                 </figure>
-                <h2>0${fila+1}º</h2>
-                <h3>Pessoa na fila</h3>
                 <div class="descricoes">
                     <div class="description">
                         <figure>
@@ -218,7 +213,7 @@ function carregaAgendamentos(){
                         <figure>
                             <img src="../assets/clock.jpg">
                         </figure>
-                        <p>Horário estimado: ${hora} horas (BR)</p>
+                        <p>Horário marcado: ${hora} horas (BR)</p>
                     </div>
                     <a onclick="cancelarAgendamento(${id})" href="#"><span>CANCELAR AGENDAMENTO</span></a>
                 </div>
