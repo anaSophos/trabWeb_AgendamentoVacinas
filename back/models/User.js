@@ -7,6 +7,14 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+      },
+    password: {
+        type: String,
+        required: true
+    },
     rg:{
         type: Number,
         required: true
@@ -26,7 +34,8 @@ const userSchema = new Schema({
     role:{
         type: String,
         default: 'User',
-    }
+    },
+
 })
 
 export default mongoose.model("User", userSchema)
