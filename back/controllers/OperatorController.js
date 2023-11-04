@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import Operator from '../models/Operator.js'
 import bcrypt from 'bcrypt'
+import Hospital from '../models/Hospital.js'
 
 export default class OperatorController{
 
@@ -29,19 +30,26 @@ export default class OperatorController{
 
     static async createOperator(req,res){
         try{
-            const {name, email, password} = req.body
+            const {name, email, password, hospital} = req.body
 
             const salt = bcrypt.genSaltSync()
 
             const hashedPassword = await bcrypt.hash(password, salt)
 
+            if (!name || !email || !password || !hospital) {
+                return res.status(400).json({ 'message': "Id" })
+            }            
+
             const newOperator = {
                 name,
                 email,
-                password: hashedPassword,       
+                password: hashedPassword,   
+                hospital    
             }
 
             const operatorCreated = await Operator.create(newOperator)
+
+            await Hospital.findByIdAndUpdate(hospital, { $push: { operatorss: operatorCreated._id } })
 
             return res.status(201).json(operatorCreated)
         }catch(e){
