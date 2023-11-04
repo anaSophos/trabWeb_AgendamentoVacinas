@@ -11,6 +11,6 @@ router.use('/user', userRoutes)
 router.use('/hosp', hospitalRoutes)
 router.use('/vac', vaccineRoutes)
 router.use('/scheduling', schedulingRoutes)
-router.use('operator', operatorRoutes)
+router.use('/operator', operatorRoutes)
 
 export default router
