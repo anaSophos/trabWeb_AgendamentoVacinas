@@ -7,11 +7,19 @@ const OperatorSchema = new Schema({
         type: String,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+      },
+    password: {
+        type: String,
+        required: true
+    },
     hospital:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Hospital",
         required: true
-    }
+    },
 })
 
 export default mongoose.model("Operator", OperatorSchema)
