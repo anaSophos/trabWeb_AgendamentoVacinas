@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import Scheduling from '../models/Scheduling.js'
 
-export default class ScredulingController{
+export default class SchedulingController{
 
     static async getScheduling(req, res){
     //Se a quantidade de vacina em estoque for igual a 0 (zero) não deve aparecer no catálogo de agendamento
