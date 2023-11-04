@@ -7,6 +7,6 @@ const router = express.Router()
 
 router.use('/user', userRoutes)
 router.use('/hosp', hospitalRoutes)
-router.use('/user', vaccineRoutes)
+router.use('/vac', vaccineRoutes)
 
 export default router
