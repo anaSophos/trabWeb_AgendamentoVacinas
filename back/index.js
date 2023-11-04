@@ -9,13 +9,13 @@ import routes from './routes/routes.js'
 
 const app = express()
 
-app.use(express.json())
+app.use(express.json()) //processar solicitações json
 app.use(express.urlencoded({extended: true}))
 
 app.use('/', routes)
 
 
-conn()
+conn()//estabelecendo conexao com o DB
 mongoose.connection.once('open',()=>{
 
     console.log('Conexão feita no DB')

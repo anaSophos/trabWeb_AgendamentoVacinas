@@ -49,7 +49,7 @@ export default class OperatorController{
 
             const operatorCreated = await Operator.create(newOperator)
 
-            await Hospital.findByIdAndUpdate(hospital, { $push: { operatorss: operatorCreated._id } })
+            await Hospital.findByIdAndUpdate(hospital, { $push: { operators: operatorCreated._id } })
 
             return res.status(201).json(operatorCreated)
         }catch(e){
