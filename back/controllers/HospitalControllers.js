@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import Hospital from '../models/Hospital.js'
+import Operator from '../models/Operator.js'
 
 export default class HospitalController{
 
@@ -26,23 +27,33 @@ export default class HospitalController{
     }
 
 
-    static async createHosp(req,res){
-        try{
-            const {name, address} = req.body
-
-            const newHosp = {
-                name,
-                address 
+    static async createHosp(req, res) {
+        try {
+          const { name, address, operators } = req.body;
+    
+          if (!name || !address) {
+            return res.status(400).json({ 'message': 'Name and address.' });
+          }
+    
+          const newHosp = {
+            name,
+            address,
+            operators: operators || [], 
+          };
+    
+          const hospCreated = await Hospital.create(newHosp);
+    
+          if (operators && operators.length > 0) {
+            for (const operatorId of operators) {
+              await Operator.findByIdAndUpdate(operatorId, { $push: { hospitals: hospCreated._id } });
             }
-
-            const hospCreated = await Hospital.create(newHosp)
-
-            return res.status(201).json(hospCreated)
-        }catch(e){
-            res.status(500).json({'message': e.message })
+          }
+    
+          return res.status(201).json(hospCreated);
+        } catch (e) {
+          res.status(500).json({ 'message': e.message });
         }
-    }
-
+      }
 
     static async updateHosp(req, res){
         try{
