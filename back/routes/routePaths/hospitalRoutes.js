@@ -1,7 +1,10 @@
 import express from 'express'
 import HospitalController from '../../controllers/HospitalControllers.js'
+import Authenticated from '../../middleware/authenticated.js'
 
 const router = express.Router()
+
+router.use(Authenticated.checkToken)
 
 router.get('/', HospitalController.getHospital)
 router.get('/:hospId', HospitalController.getHospById)
