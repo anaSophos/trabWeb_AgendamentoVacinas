@@ -5,6 +5,9 @@ import express from 'express'
 import conn from './db/conn.js'
 import mongoose from 'mongoose'
 import routes from './routes/routes.js'
+import swaggerUi from "swagger-ui-express"
+import swaggerDocs from './swagger_output.json' assert {type: 'json'}
+
 
 
 const app = express()
@@ -13,6 +16,7 @@ app.use(express.json()) //processar solicitações json
 app.use(express.urlencoded({extended: true}))
 
 app.use('/', routes)
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 
 conn()//estabelecendo conexao com o DB

@@ -8,11 +8,11 @@ import authRoutes from './routePaths/authRoutes.js'
 
 const router = express.Router()
 
+router.use('/auth', authRoutes)
 router.use('/user', userRoutes)
 router.use('/hosp', hospitalRoutes)
 router.use('/vac', vaccineRoutes)
 router.use('/scheduling', schedulingRoutes)
 router.use('/operator', operatorRoutes)
-router.use('/auth', authRoutes)
 
 export default router
