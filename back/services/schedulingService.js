@@ -1,33 +1,41 @@
-import Scheduling from '../models/Scheduling.js';
-import Vaccine from '../models/Vaccine.js';
+const uuid = require('uuid');
+const Scheduling = require('../models/Scheduling');
+const Vaccine = require('../models/Vaccine');
 
-export default class SchedulingService {
+class SchedulingService {
+  static async getSchedules() {
+    return Scheduling.find();
+  }
+
+  static async getScheduleById(id) {
+    return Scheduling.findById(id);
+  }
 
   static async createScheduling(dto) {
     const { idUser, idVac, data, time } = dto;
 
     try {
-      // Verifique a disponibilidade da vacina
       const vaccine = await Vaccine.findById(idVac);
       if (!vaccine) {
-        throw new Error('Vacina não encontrada. Certifique-se de que a vacina exista antes de agendar.');
+        throw new Error('Vacina não encontrada.');
       }
 
-      // Se a quantidade de vacina em estoque for igual a 0 (zero), não permita agendar
       if (vaccine.qty === 0) {
         throw new Error('A vacina está esgotada e não pode ser agendada.');
       }
 
-      const newScheduling = {
+      const schedulingId = uuid.v4();
+
+      const newScheduling = new Scheduling({
+        _id: schedulingId,
         idUser,
         idVac,
         data,
         time,
-      };
+      });
 
-      const schedulingCreated = await Scheduling.create(newScheduling);
+      const schedulingCreated = await newScheduling.save();
 
-      // Atualize a quantidade da vacina disponível
       vaccine.qty -= 1;
       await vaccine.save();
 
@@ -37,21 +45,16 @@ export default class SchedulingService {
     }
   }
 
-  static async getSchedules() {
-    return Scheduling.find();
+  static async updateScheduling(id, updatedFields) {
+    return Scheduling.findByIdAndUpdate(id, updatedFields, { new: true });
   }
 
-  static async getScheduleById(id) {
-    return Scheduling.findById(id);
-  }
-
-  static async deleteSchedule(id) {
+  static async deleteScheduling(id) {
     const scheduling = await Scheduling.findById(id);
     if (!scheduling) {
       throw new Error('Agendamento não encontrado.');
     }
 
-    // Recupere a quantidade da vacina associada ao agendamento
     const vaccine = await Vaccine.findById(scheduling.idVac);
     if (vaccine) {
       vaccine.qty += 1;
@@ -64,4 +67,4 @@ export default class SchedulingService {
   }
 }
 
-export { SchedulingService };
+module.exports = SchedulingService;
