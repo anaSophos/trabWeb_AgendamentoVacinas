@@ -2,10 +2,10 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "REST API",
+    "title": "REST API - Agendamento de Vacinas",
     "description": ""
   },
-  "host": "localhost:3000",
+  "host": "localhost:3002",
   "basePath": "/",
   "schemes": [
     "http"
@@ -13,7 +13,7 @@
   "paths": {
     "/auth/login": {
       "post": {
-        "description": "",
+        "description": "Rota para autenticar o usuário",
         "parameters": [
           {
             "name": "body",
@@ -22,10 +22,10 @@
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "any"
+                  "example": "teste@gmail.com"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "teste000"
                 }
               }
             }
@@ -49,7 +49,7 @@
     },
     "/user/": {
       "get": {
-        "description": "",
+        "description": "Busca por todos users",
         "parameters": [
           {
             "name": "authorization",
@@ -72,7 +72,7 @@
     },
     "/user/{userId}": {
       "get": {
-        "description": "",
+        "description": "Rota para buscar um user com base no seu ID",
         "parameters": [
           {
             "name": "userId",
@@ -104,7 +104,7 @@
     },
     "/user/create": {
       "post": {
-        "description": "",
+        "description": "Rota para criar/registrar user",
         "parameters": [
           {
             "name": "authorization",
@@ -121,10 +121,10 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "teste@gmail.com"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "teste000"
                 },
                 "cpf": {
                   "example": "any"
@@ -157,7 +157,7 @@
     },
     "/user/edit/{userId}": {
       "put": {
-        "description": "",
+        "description": "Rota para editar um user com base no seu ID",
         "parameters": [
           {
             "name": "userId",
@@ -180,7 +180,7 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "teste@gmail.com"
                 },
                 "phoneNum": {
                   "example": "any"
@@ -207,7 +207,7 @@
     },
     "/user/delete/{userId}": {
       "delete": {
-        "description": "",
+        "description": "Rota para deletar um user com base no seu ID",
         "parameters": [
           {
             "name": "userId",
@@ -239,7 +239,7 @@
     },
     "/hosp/": {
       "get": {
-        "description": "",
+        "description": "Busca por todos hospitais",
         "parameters": [
           {
             "name": "authorization",
@@ -262,7 +262,7 @@
     },
     "/hosp/{hospId}": {
       "get": {
-        "description": "",
+        "description": "Rota para buscar um hospital com base no seu ID",
         "parameters": [
           {
             "name": "hospId",
@@ -294,7 +294,7 @@
     },
     "/hosp/create": {
       "post": {
-        "description": "",
+        "description": "Rota para criar/registrar Hospital",
         "parameters": [
           {
             "name": "authorization",
@@ -385,7 +385,7 @@
     },
     "/hosp/delete/{hospId}": {
       "delete": {
-        "description": "",
+        "description": "Rota para deletar um hospital com base no seu ID",
         "parameters": [
           {
             "name": "hospId",
@@ -417,7 +417,7 @@
     },
     "/vac/": {
       "get": {
-        "description": "",
+        "description": "Busca por todas Vacinas",
         "parameters": [
           {
             "name": "authorization",
@@ -440,7 +440,7 @@
     },
     "/vac/{vacId}": {
       "get": {
-        "description": "",
+        "description": "Rota para buscar uma vacina com base no seu ID",
         "parameters": [
           {
             "name": "vacId",
@@ -472,7 +472,7 @@
     },
     "/vac/create": {
       "post": {
-        "description": "",
+        "description": "Rota para criar/registrar Vacina",
         "parameters": [
           {
             "name": "authorization",
@@ -572,7 +572,7 @@
     },
     "/vac/delete/{vacId}": {
       "delete": {
-        "description": "",
+        "description": "Rota para deletar uma vacina com base no seu ID",
         "parameters": [
           {
             "name": "vacId",
@@ -604,7 +604,7 @@
     },
     "/scheduling/": {
       "get": {
-        "description": "",
+        "description": "Busca por todos Agendamentos",
         "parameters": [
           {
             "name": "authorization",
@@ -627,7 +627,7 @@
     },
     "/scheduling/{schedulingId}": {
       "get": {
-        "description": "",
+        "description": "Rota para buscar um agendamento com base no seu ID",
         "parameters": [
           {
             "name": "schedulingId",
@@ -659,7 +659,7 @@
     },
     "/scheduling/create": {
       "post": {
-        "description": "",
+        "description": "Rota para criar/registrar Agendamento",
         "parameters": [
           {
             "name": "authorization",
@@ -756,7 +756,7 @@
     },
     "/scheduling/delete/{schedulingId}": {
       "delete": {
-        "description": "",
+        "description": "Rota para deletar um agendamento com base no seu ID",
         "parameters": [
           {
             "name": "schedulingId",
@@ -788,7 +788,7 @@
     },
     "/operator/": {
       "get": {
-        "description": "",
+        "description": "Busca por todos Agentes de Saúde",
         "parameters": [
           {
             "name": "authorization",
@@ -811,7 +811,7 @@
     },
     "/operator/{operId}": {
       "get": {
-        "description": "",
+        "description": "Rota para buscar um Agente de Saúde com base no seu ID",
         "parameters": [
           {
             "name": "operId",
@@ -843,7 +843,7 @@
     },
     "/operator/create": {
       "post": {
-        "description": "",
+        "description": "Rota para criar/registrar Agente de Saúde",
         "parameters": [
           {
             "name": "authorization",
@@ -860,10 +860,10 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "teste@gmail.com"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "teste000"
                 },
                 "hospital": {
                   "example": "any"
@@ -913,7 +913,7 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "teste@gmail.com"
                 }
               }
             }
@@ -937,7 +937,7 @@
     },
     "/operator/delete/{operId}": {
       "delete": {
-        "description": "",
+        "description": "Rota para deletar um Agente de Saúde com base no seu ID",
         "parameters": [
           {
             "name": "operId",
@@ -1024,7 +1024,7 @@
     },
     "/role/create": {
       "post": {
-        "description": "",
+        "description": "Rota para criar/registrar",
         "parameters": [
           {
             "name": "authorization",
@@ -1147,7 +1147,7 @@
     },
     "/permission/": {
       "get": {
-        "description": "",
+        "description": "Busca por todas permissões",
         "parameters": [
           {
             "name": "authorization",
@@ -1202,7 +1202,7 @@
     },
     "/permission/create": {
       "post": {
-        "description": "",
+        "description": "Rota para criar/registrar permissão",
         "parameters": [
           {
             "name": "authorization",
