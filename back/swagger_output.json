@@ -1,11 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "API - Agendamento de Vacinas",
-    "description": "",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
   },
-  "host": "localhost:3002",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
     "http"
@@ -13,7 +13,7 @@
   "paths": {
     "/auth/login": {
       "post": {
-        "description": "Rota para autenticar o user",
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -22,10 +22,10 @@
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "email@gmail.com"
+                  "example": "any"
                 },
                 "password": {
-                  "example": "email000"
+                  "example": "any"
                 }
               }
             }
@@ -49,7 +49,7 @@
     },
     "/user/": {
       "get": {
-        "description": "Busca de todos users",
+        "description": "",
         "parameters": [
           {
             "name": "authorization",
@@ -72,7 +72,7 @@
     },
     "/user/{userId}": {
       "get": {
-        "description": "Busca de usuário pelo seu ID",
+        "description": "",
         "parameters": [
           {
             "name": "userId",
@@ -104,7 +104,7 @@
     },
     "/user/create": {
       "post": {
-        "description": "Rota para cadastrar/registrar usuários",
+        "description": "",
         "parameters": [
           {
             "name": "authorization",
@@ -121,10 +121,10 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "email@gmail.com"
+                  "example": "any"
                 },
                 "password": {
-                  "example": "email000"
+                  "example": "any"
                 },
                 "cpf": {
                   "example": "any"
@@ -157,7 +157,7 @@
     },
     "/user/edit/{userId}": {
       "put": {
-        "description": "Rota para editar informações do usuário",
+        "description": "",
         "parameters": [
           {
             "name": "userId",
@@ -180,7 +180,7 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "email@gmail.com"
+                  "example": "any"
                 },
                 "phoneNum": {
                   "example": "any"
@@ -207,7 +207,7 @@
     },
     "/user/delete/{userId}": {
       "delete": {
-        "description": "Rota para excluir um usuário",
+        "description": "",
         "parameters": [
           {
             "name": "userId",
@@ -239,7 +239,7 @@
     },
     "/hosp/": {
       "get": {
-        "description": "Busca de todos Hospitais",
+        "description": "",
         "parameters": [
           {
             "name": "authorization",
@@ -262,7 +262,7 @@
     },
     "/hosp/{hospId}": {
       "get": {
-        "description": "Busca de hospital pelo ID",
+        "description": "",
         "parameters": [
           {
             "name": "hospId",
@@ -294,7 +294,7 @@
     },
     "/hosp/create": {
       "post": {
-        "description": "Rota para cadastrar/registrar hospitais",
+        "description": "",
         "parameters": [
           {
             "name": "authorization",
@@ -338,7 +338,7 @@
     },
     "/hosp/edit/{hospId}": {
       "put": {
-        "description": "Rota para editar informações do hospital",
+        "description": "",
         "parameters": [
           {
             "name": "hospId",
@@ -385,7 +385,7 @@
     },
     "/hosp/delete/{hospId}": {
       "delete": {
-        "description": "Rota para excluir um hospital",
+        "description": "",
         "parameters": [
           {
             "name": "hospId",
@@ -417,7 +417,7 @@
     },
     "/vac/": {
       "get": {
-        "description": "Busca de todas as vacinas",
+        "description": "",
         "parameters": [
           {
             "name": "authorization",
@@ -440,7 +440,7 @@
     },
     "/vac/{vacId}": {
       "get": {
-        "description": "Busca de Vacina pelo ID",
+        "description": "",
         "parameters": [
           {
             "name": "vacId",
@@ -472,7 +472,7 @@
     },
     "/vac/create": {
       "post": {
-        "description": "Rota para cadastrar/registrar Vacinas",
+        "description": "",
         "parameters": [
           {
             "name": "authorization",
@@ -519,7 +519,7 @@
     },
     "/vac/edit/{vacId}": {
       "put": {
-        "description": "Rota para editar informações da Vacina",
+        "description": "",
         "parameters": [
           {
             "name": "vacId",
@@ -572,7 +572,7 @@
     },
     "/vac/delete/{vacId}": {
       "delete": {
-        "description": "Rota para excluir uma vacina",
+        "description": "",
         "parameters": [
           {
             "name": "vacId",
@@ -604,7 +604,7 @@
     },
     "/scheduling/": {
       "get": {
-        "description": "Busca de todos os agendamentos",
+        "description": "",
         "parameters": [
           {
             "name": "authorization",
@@ -627,7 +627,7 @@
     },
     "/scheduling/{schedulingId}": {
       "get": {
-        "description": "Busca de Agendamento pelo seu ID",
+        "description": "",
         "parameters": [
           {
             "name": "schedulingId",
@@ -659,7 +659,7 @@
     },
     "/scheduling/create": {
       "post": {
-        "description": "Rota para cadastrar/registrar Agendamentos",
+        "description": "",
         "parameters": [
           {
             "name": "authorization",
@@ -703,7 +703,7 @@
     },
     "/scheduling/edit/{schedulingId}": {
       "put": {
-        "description": "Rota para editar informações de um agendamento",
+        "description": "",
         "parameters": [
           {
             "name": "schedulingId",
@@ -756,7 +756,7 @@
     },
     "/scheduling/delete/{schedulingId}": {
       "delete": {
-        "description": "Rota para excluir um agendamento",
+        "description": "",
         "parameters": [
           {
             "name": "schedulingId",
@@ -788,7 +788,7 @@
     },
     "/operator/": {
       "get": {
-        "description": "Busca de todos os Agentes de Saúde",
+        "description": "",
         "parameters": [
           {
             "name": "authorization",
@@ -811,7 +811,7 @@
     },
     "/operator/{operId}": {
       "get": {
-        "description": "Busca de um Agente de Saúde pelo seu ID",
+        "description": "",
         "parameters": [
           {
             "name": "operId",
@@ -843,7 +843,7 @@
     },
     "/operator/create": {
       "post": {
-        "description": "Rota para cadastrar/registrar um Agente de Saúde",
+        "description": "",
         "parameters": [
           {
             "name": "authorization",
@@ -860,10 +860,10 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "email@gmail.com"
+                  "example": "any"
                 },
                 "password": {
-                  "example": "email000"
+                  "example": "any"
                 },
                 "hospital": {
                   "example": "any"
@@ -890,7 +890,7 @@
     },
     "/operator/edit/{operId}": {
       "put": {
-        "description": "Rota para editar informações de um Agente de Saúde",
+        "description": "",
         "parameters": [
           {
             "name": "operId",
@@ -913,7 +913,7 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "email@gmail.com"
+                  "example": "any"
                 }
               }
             }
@@ -937,10 +937,366 @@
     },
     "/operator/delete/{operId}": {
       "delete": {
-        "description": "Rota para excluir uma Agente de Saúde",
+        "description": "",
         "parameters": [
           {
             "name": "operId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/role/": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/role/{roleId}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Found"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/role/create": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "example": "any"
+                },
+                "descricao": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/role/edit/{roleId}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "example": "any"
+                },
+                "descricao": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/role/delete/{roleId}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/permission/": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/permission/{permissionId}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "permissionId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Found"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/permission/create": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "example": "any"
+                },
+                "descricao": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/permission/edit/{permissionId}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "permissionId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "example": "any"
+                },
+                "descricao": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/permission/delete/{permissionId}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "permissionId",
             "in": "path",
             "required": true,
             "type": "string"
