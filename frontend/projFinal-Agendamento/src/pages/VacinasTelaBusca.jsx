@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Cabecalho from '../components/Cabecalho/index.jsx';
 import Rodape from '../components/Rodape/index.jsx';
 import TituloPrincipal from '../components/Titulo/tituloPrincipal.jsx';
-import Input from '../components/Cards/InputPesquisa/index.jsx';
+import Input from '../components/Inputs/InputPesquisa/index.jsx';
 import CardVacina from '../components/Cards/CardVacinaAgendamento/index.jsx';
 
 const VacinasBusca = () => {

@@ -6,6 +6,7 @@ import VacinasBusca from '../pages/VacinasTelaBusca.jsx';
 import MyAgendamentos from '../pages/MyAgendamentos.jsx';
 import CancelamentoAgendamento from '../pages/CancelarAgendamento.jsx';
 import SucessoAgendamento from '../pages/SucessoAgendamento.jsx';
+import CadastrarUser from '../pages/CadastrarUser.jsx';
 
 export const router = createBrowserRouter([
     {
@@ -27,5 +28,9 @@ export const router = createBrowserRouter([
     {
         path: "/sucesso",
         element: <SucessoAgendamento />,
+    },
+    {
+        path: "/cadastrar-user",
+        element: <CadastrarUser />,
     },
 ]);
