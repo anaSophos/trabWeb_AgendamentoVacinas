@@ -9,7 +9,14 @@ const OperatorSchema = new Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
+        validate: {
+            validator: function (v) {
+                return /\S+@\S+\.\S+/.test(v);
+            },
+            message: props => `${props.value} não é um e-mail válido!`
+        }
       },
     password: {
         type: String,

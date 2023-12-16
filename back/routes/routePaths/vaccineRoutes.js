@@ -4,7 +4,7 @@ import Authenticated from '../../middleware/authenticated.js'
 
 const router = express.Router();
 
-router.use(Authenticated.checkToken)
+//router.use(Authenticated.checkToken)
 
 router.get('/', VaccineController.getVaccine);
 router.get('/:vacId', VaccineController.getVacById);

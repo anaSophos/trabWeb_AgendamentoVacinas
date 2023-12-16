@@ -1,4 +1,60 @@
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
+import Operator from '../models/Operator.js';
+
+export default class AuthController {
+    static async loginUser(req, res) {
+        try {
+            const { email, password, userType } = req.body;
+
+            let userModel;
+            let userRole;
+
+            if (userType === 'user') {
+                userModel = User;
+                userRole = 'user';
+            } else if (userType === 'operator') {
+                userModel = Operator;
+                userRole = 'operator';
+            } else {
+                return res.status(422).json({ 'message': "Invalid user type" });
+            }
+
+            const usuario = await userModel.findOne({ email: email }).exec();
+
+            if (!usuario) {
+                return res.status(404).json({ 'message': "User not found" });
+            }
+
+            const senhaIguais = await bcrypt.compare(password, usuario.password);
+
+            if (!senhaIguais) {
+                return res.status(422).json({ 'message': "Incorrect Password" });
+            }
+
+            try {
+                const secret = process.env.SECRET;
+
+                const token = jwt.sign({
+                    id: usuario._id,
+                    email: usuario.email,
+                    userType: userRole // Adiciona o tipo de usuário ao payload
+                },
+                    secret, { expiresIn: 86400 }
+                );
+
+                return res.status(200).json({ 'message': "Connected User", token });
+            } catch (e) {
+                res.status(500).json({ 'message': e.message });
+            }
+
+        } catch (e) {
+            res.status(500).json({ 'message': e.message });
+        }
+    }
+}
+/*import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import User from '../models/User.js'
 
@@ -39,4 +95,4 @@ export default class AuthController{
         }
     }
 
-}
+}*/

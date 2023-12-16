@@ -11,6 +11,11 @@ const roleSchema = new Schema({
         type: String,
         required: true
     },
+   /* permissions:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Permission',
+        default: []
+    }]*/
 })
 
 export default mongoose.model("Role", roleSchema)

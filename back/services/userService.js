@@ -1,35 +1,32 @@
-const uuid = require('uuid'); 
-const User = require('../models/User');
-const Vaccine = require('../models/Vaccine');
-const Scheduling = require('../models/Scheduling');
+//const uuid = require('uuid'); 
+//const User = require('../models/User');
+//const Vaccine = require('../models/Vaccine');
+//const Scheduling = require('../models/Scheduling');
 
-class UserService {
-  static async createUser(dto) {
-    const user = await User.findOne({ email: dto.email });
-    if (user) {
-      throw new Error('Usuário já cadastrado');
-    }
+import UserRepository from '../repositories/UserRepository.js';
 
-    return User.create(dto);
+export default class UserService {
+  static async getAllUsers() {
+    return UserRepository.getAllUsers();
   }
 
-  static async getUsers() {
-    return User.find();
+  static async getUserById(userId) {
+    return UserRepository.getUserById(userId);
   }
 
-  static async getUserById(id) {
-    return User.findById(id);
+  static async createUser(userData) {
+    return UserRepository.createUser(userData);
   }
 
-  static async updateUser(id, updatedFields) {
-    return User.findByIdAndUpdate(id, updatedFields, { new: true });
+  static async updateUser(userId, updatedData) {
+    return UserRepository.updateUser(userId, updatedData);
   }
 
-  static async deleteUser(id) {
-    return User.findByIdAndDelete(id);
+  static async deleteUser(userId) {
+    return UserRepository.deleteUser(userId);
   }
 }
-
+/*
 class CommonUserService extends UserService {
   static async schedule(userId, vaccineId, date, time) {
     const vaccine = await Vaccine.findById(vaccineId);
@@ -92,4 +89,4 @@ class AdminUserService extends UserService {
   }
 }
 
-module.exports = { CommonUserService, AdminUserService };
+module.exports = { CommonUserService, AdminUserService };*/

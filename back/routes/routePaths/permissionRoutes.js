@@ -3,9 +3,9 @@ import PermissionController from '../../controllers/permissionController.js'
 import Authenticated from '../../middleware/authenticated.js'
 
 const router = express.Router()
-router.use(Authenticated.checkToken)
+//router.use(Authenticated.checkToken)
 
-router.get('/', PermissionController.getPermission)
+router.get('/', PermissionController.getPermissions)
 router.get('/:permissionId', PermissionController.getPermissionById)
 router.post('/create', PermissionController.createPermission)
 router.put('/edit/:permissionId', PermissionController.updatePermission)

@@ -9,7 +9,14 @@ const userSchema = new Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
+        validate: {
+            validator: function (v) {
+                return /\S+@\S+\.\S+/.test(v);
+            },
+            message: props => `${props.value} não é um e-mail válido!`
+        }
       },
     password: {
         type: String,
@@ -17,11 +24,11 @@ const userSchema = new Schema({
     },
     rg:{
         type: Number,
-        required: true
+        required: true,
     },
     cpf:{
         type: Number,
-        required: true
+        required: true,
     },
     phoneNum:{
         type: String,
@@ -31,10 +38,11 @@ const userSchema = new Schema({
         type: Date,
         required: true
     },
-    role:{
-        type: String,
-        default: 'User',
-    },
+   /* role:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Role",
+        required:true
+    },*/
 
 })
 

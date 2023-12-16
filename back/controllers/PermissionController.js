@@ -1,93 +1,55 @@
-import mongoose from 'mongoose'
-import Permission from '../models/Permission.js'
+import PermissionService from '../services/permissionService.js';
 
-export default class PermissionController{
-    static async getPermission(req, res){
-        try{
-            const permissions = await Permission.find().exec()
-        
-            res.status(200).json(permissions)
-        }catch(e){
-            res.status(500).json({'message': e.message })
-        }
+export default class PermissionController {
+  static async getPermissions(req, res) {
+    try {
+      const permissions = await PermissionService.getAllPermissions();
+      res.status(200).json(permissions);
+    } catch (e) {
+      res.status(500).json({ message: e.message });
     }
+  }
 
-    static async getPermissionById(req,res){
-        try{
-            const permission = await Permission.findOne({_id : req.params.permissionId}).exec()
-
-            if(!permission) return res.status(404).json({'message': "Permission not found"})
-
-            return res.status(302).json(permission)
-        }catch(e){
-            res.status(500).json({'message': e.message })
-        }
+  static async getPermissionById(req, res) {
+    try {
+      const permission = await PermissionService.getPermissionById(req.params.permissionId);
+      res.status(302).json(permission);
+    } catch (e) {
+      res.status(404).json({ message: "Permission not found" });
     }
+  }
 
-    static async createPermission(req, res){
-        try {
-            const { nome, descricao } = req.body;
-      
-            if (!nome || !descricao) {
-              return res.status(400).json({ 'message': 'Permission and address.' });
-            }
+  static async createPermission(req, res) {
+    try {
+      const { nome, descricao } = req.body;
+      if (!nome || !descricao) {
+        return res.status(400).json({ message: 'Name and address.' });
+      }
 
-            const permissao = await Permission.findOne({nome : nome}).exec()
-
-            if (permissao){
-                return res.status(400).json({'message': "Permission already exists"})
-            }
-      
-            const newPermission = {
-              nome,
-              descricao,
-            };
-      
-            const permissionCreated = await Permission.create(newPermission);
-      
-            return res.status(201).json(permissionCreated);
-          } catch (e) {
-            res.status(500).json({ 'message': e.message });
-          }
+      const newPermission = await PermissionService.createPermission({ nome, descricao });
+      res.status(201).json(newPermission);
+    } catch (e) {
+      res.status(500).json({ message: e.message });
     }
+  }
 
-    static async updatePermission(req, res){
-        try{
-            let permission = await Permission.findOne({_id : req.params.permissionId}).exec()
-
-            if(!permission) return res.status(404).json({'message': "Permission not found"})
-
-            if(req.body?.nome) {
-                const permissao = await Permission.findOne({nome : req.body.nome}).exec()
-                if (permissao){
-                    return res.status(400).json({'message': "Permission already exists"})
-                }
-                permission.name = req.body.nome
-            }
-            if(req.body?.descricao) permission.descricao = req.body.descricao
-
-            const changedPermission = await permission.save()
-
-            return res.status(200).json(changedPermission)
-
-        }catch(e){
-            res.status(500).json({'message': e.message })
-        }
+  static async updatePermission(req, res) {
+    try {
+      const updatedPermission = await PermissionService.updatePermission(req.params.permissionId, req.body);
+      if (!updatedPermission) return res.status(404).json({ message: 'Permission not found' });
+      res.status(200).json(updatedPermission);
+    } catch (e) {
+      res.status(500).json({ message: e.message });
     }
+  }
 
-
-    static async deletePermission(req, res){
-        try{
-            let permission = await Permission.findOne({_id : req.params.permissionId}).exec()
-
-            if(!permission) return res.status(404).json({'message': "Permission not found"})
-
-            await Permission.deleteOne(permission)
-
-            return res.status(200).json({"message": "Permission deleted"})
-
-        }catch(e){
-            res.status(500).json({'message': e.message })
-        }
-    }
+  static async deletePermission(req, res) {
+    try {
+        const result = await PermissionService.deletePermission(req.params.permissionId);
+        if (!result) return res.status(404).json({ message: 'Permission not found' });
+        res.status(200).json({ message: 'Permission deleted' });
+      } catch (e) {
+        res.status(500).json({ message: e.message });
+      }
+  }
 }
