@@ -7,7 +7,6 @@ import TituloPrincipal from '../components/Titulo/tituloPrincipal.jsx';
 const Home = () => {
   return (
     <>
-    <Cabecalho/>
     <Banner/>
     <TituloPrincipal children={"titulo"}/>
       <Rodape />

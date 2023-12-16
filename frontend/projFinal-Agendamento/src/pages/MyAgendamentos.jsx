@@ -2,24 +2,19 @@ import React, { useEffect, useState } from 'react'
 import Cabecalho from '../components/Cabecalho/index.jsx';
 import Rodape from '../components/Rodape/index.jsx';
 import TituloPrincipal from '../components/Titulo/tituloPrincipal.jsx';
-import Input from '../components/Cards/InputPesquisa/index.jsx';
 import CardVacina from '../components/Cards/CardVacinaAgendamento/index.jsx';
 
-const VacinasBusca = () => {
+const MyAgendamentos = () => {
   return (
     <>
     <Cabecalho/>
-    <TituloPrincipal children={"Vacinas"}/>
-    <Input type={'text'} placeholder={"Pesquise a vacina que você deseja encontrar"}/>
+    <TituloPrincipal children={"Meus Agendamentos"}/>
     <div className=' w-[90%] m-auto flex-row flex justify-between flex-wrap mb-[5%]'>
-        <CardVacina nameVaccine={'Covid-19'} qtd={`Quantidade disponível: ${1}`} hospitalTime={2} childrenButton={'AGENDAR VACINA'}/>
-        <CardVacina/>
-        <CardVacina/>
-        <CardVacina/>
+        <CardVacina nameVaccine={'Covid-19'} qtd={`Quantidade agendada: ${1}`} hospitalTime={2} childrenButton={'CANCELAR'}/>
     </div>
     <Rodape />
     </>
   )
 }
 
-export default VacinasBusca
+export default MyAgendamentos
