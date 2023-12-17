@@ -41,13 +41,39 @@ export default class AuthController {
                     email: usuario.email,
                     userType: userRole // Adiciona o tipo de usuário ao payload
                 },
-                    secret, { expiresIn: 86400 }
+                    secret, { expiresIn: 86400 } //86400
                 );
 
                 return res.status(200).json({ 'message': "Connected User", token });
             } catch (e) {
                 res.status(500).json({ 'message': e.message });
             }
+
+        } catch (e) {
+            res.status(500).json({ 'message': e.message });
+        }
+    }
+
+    static async refreshToken(req, res) {
+        const refreshToken = req.headers.authorization.split(' ')[1];
+
+        if (!refreshToken) {
+            return res.status(401).json({ 'message': "Refresh token missing" });
+        }
+
+        try {
+            const secret = process.env.SECRET;
+            const decodedToken = jwt.verify(refreshToken, secret);
+
+            const newToken = jwt.sign({
+                id: decodedToken.id,
+                email: decodedToken.email,
+                userType: decodedToken.userType
+            },
+                secret, { expiresIn: 86400 } //86400
+            );
+
+            return res.status(200).json({ 'message': "New Access Token Generated", token: newToken });
 
         } catch (e) {
             res.status(500).json({ 'message': e.message });

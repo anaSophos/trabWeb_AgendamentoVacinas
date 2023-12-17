@@ -11,15 +11,20 @@ export default class Authenticated {
 
         try {
             const secret = process.env.SECRET;
-
             const decodedToken = jwt.verify(token, secret);
 
-            // Adiciona a informação do tipo de usuário ao request
             req.userType = decodedToken.userType;
+
+            const expirationTime = decodedToken.exp;
+            const currentTime = Math.floor(Date.now() / 1000);
+
+            if (expirationTime - currentTime < 20) {
+                res.setHeader('Token-About-To-Expire', 'true');
+            }
 
             next();
         } catch (e) {
-            res.status(500).json({ 'message': e.message });
+            res.status(500).json({ 'message': "Token expired" });
         }
     }
 }

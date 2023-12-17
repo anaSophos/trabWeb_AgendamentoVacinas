@@ -21,6 +21,10 @@ const shcSchema = new Schema({
         type: Date,
         required: true
     },
+    qty:{
+        type: Number,
+        required: true
+    },
 })
 
 export default mongoose.model("Scheduling", shcSchema)
