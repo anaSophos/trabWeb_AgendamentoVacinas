@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react'
 import Cabecalho from '../components/Cabecalho';
 import Rodape from '../components/Rodape';
 import TituloPrincipal from '../components/Titulo/tituloPrincipal.jsx';
-import FormComponent from '../components/Forms/FormCadastrarUser/index.jsx';
+import FormCadatrarVacina from '../components/Forms/FormCadastrarVacina/index.jsx';
 
-const CadastrarUser = () => {
+const CadastrarVacina = () => {
   return (
     <>
     <Cabecalho/>
-    <TituloPrincipal children={"Criar Conta"}/>
-    <div className='pb-[5%]'><FormComponent/></div>
+    <TituloPrincipal children={"Cadastrar Vacina"}/>
+    <div className='pb-[5%]'><FormCadatrarVacina/></div>
       <Rodape />
     </>
   )
 }
 
-export default CadastrarUser
+export default CadastrarVacina

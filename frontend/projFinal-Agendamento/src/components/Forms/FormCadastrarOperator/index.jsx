@@ -3,7 +3,7 @@ import InputForm from '../../Inputs/InputForm';
 import Button from '../../Button';
 import LabelForms from '../../Titulo/labelForms';
 
-function FormComponent(){
+function FormCadastrarOperator(){
   return (
     <form className="w-[70%] bg-[#E8F1F3] border border-solid border-[#9fdfed] mx-auto p-6 rounded-[18px] flex flex-col justify-center shadow-md">
       <div className="mb-4">
@@ -15,20 +15,8 @@ function FormComponent(){
         <InputForm type={"text"} id={"name"} name={"name"} placeholder={"ex: Maria Beatriz Silva"}/>
       </div>
       <div className="mb-4">
-        <LabelForms htmlFor={"cpf"} children={"CPF:"}/>
-        <InputForm type={"number"} id={"cpf"} name={"cpf"} placeholder={"ex: 958.295.958-88"}/>
-      </div>
-      <div className="mb-4">
-        <LabelForms htmlFor={"rg"} children={"RG:"}/>
-        <InputForm type={"number"} id={"cg"} name={"cg"} placeholder={"ex: 45.788.000-25"}/>
-      </div>
-      <div className="mb-4">
-        <LabelForms htmlFor={"telefone"} children={"Telefone:"}/>
-        <InputForm type={"number"} id={"telefone"} name={"telefone"} placeholder={"ex: (98) 99229-1919"}/>
-      </div>
-      <div className="mb-4">
-        <LabelForms htmlFor={"dataNascimento"} children={"Data de Nascimento:"}/>
-        <InputForm type={"date"} id={"dataNascimento"} name={"dataNascimento"} placeholder={"ex: 15/05/1999"}/>
+        <LabelForms htmlFor={"hospital"} children={"Hospital:"}/>
+        <InputForm type={"text"} id={"hospital"} name={"hospital"} placeholder={"ex: Posto de saúde Barretos"}/>
       </div>
       <div className="mb-4">
         <LabelForms htmlFor={"password"} children={"Senha:"}/>
@@ -45,4 +33,4 @@ function FormComponent(){
   );
 };
 
-export default FormComponent;
+export default FormCadastrarOperator;
