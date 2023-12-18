@@ -12,19 +12,24 @@ import CadastrarOperator from '../pages/CadastrarOperator.jsx';
 import CadastrarVacina from '../pages/CadastrarVacina.jsx';
 import HomeTelaOperator from '../pages/HomeTelaOperator.jsx';
 import {Navigate} from 'react-router-dom'
-import {useSessaoUsuarioContext} from '../contexts/SessaoUsuario.jsx'
-//import AuthController from 'caminho-do-seu-controlador/AuthController';
 import { useAuthContext } from '../contexts/AuthContext.jsx';
+import AcessoNegado from '../pages/AcessoNegado.jsx'
 
-const RotaProtegida = ({ element }) => {
-  const { usuario } = useAuthContext();
-
-  if (usuario) {
+const RotaProtegida = ({ element, isPrivate }) => {
+    const { usuario } = useAuthContext();
+  
+    if (isPrivate && !usuario) {
+      return <Navigate to="/access-negado" />;
+    }
+  
     return element;
-  } else {
-    return <Navigate to="/" />;
-  }
-};
+  };
+  export const Rota = ({ isPrivate, ...props }) => (
+    <Route
+      element={<RotaProtegida {...props} isPrivate={isPrivate} />}
+      {...props}
+    />
+  );
 
 export const router = createBrowserRouter([
     {
@@ -33,19 +38,19 @@ export const router = createBrowserRouter([
     },
     {
         path: "/vacinas",
-        element: <RotaProtegida element={<VacinasBusca />} />,
+        element: <RotaProtegida element={<VacinasBusca />} isPrivate/>,
       },
     {
         path: "/meus-agendamentos",
-        element: <MyAgendamentos />,
+        element: <RotaProtegida element={<MyAgendamentos />} isPrivate/>,
     },
     {
         path: "/meus-agendamentos/cancelado",
-        element: <CancelamentoAgendamento />,
+        element: <RotaProtegida element={<CancelamentoAgendamento />} isPrivate/>,
     },
     {
         path: "/sucesso",
-        element: <SucessoAgendamento />,
+        element: <RotaProtegida element={<SucessoAgendamento />} isPrivate/>,
     },
     {
         path: "/cadastrar-user",
@@ -53,7 +58,7 @@ export const router = createBrowserRouter([
     },
     {
         path: "/cadastrar-operator",
-        element: <CadastrarOperator />,
+        element: <RotaProtegida element={<CadastrarOperator />} isPrivate/>,
     },
     {
         path: "/login",
@@ -61,10 +66,14 @@ export const router = createBrowserRouter([
     },
     {
         path: "/cadastrar-vacina",
-        element: <CadastrarVacina />,
+        element: <RotaProtegida element={<CadastrarVacina />} isPrivate/>,
     },
     {
         path: "/home-operator",
-        element: <HomeTelaOperator />,
+        element: <RotaProtegida element={ <HomeTelaOperator />} isPrivate/>,
+    },
+    {
+        path: "/access-negado",
+        element: <AcessoNegado />,
     },
 ]);
