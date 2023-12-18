@@ -6,9 +6,11 @@ import TituloPrincipal from '../components/Titulo/tituloPrincipal.jsx';
 import FormLogin from '../components/Forms/FormLogin/index.jsx';
 import http from '../http/index.js';
 import axios from 'axios';
+import { useAuthContext } from '../contexts/AuthContext.jsx';
 
 const Login = () => {
   const navegacao = useNavigate();
+  const { realizarLogin } = useAuthContext();
 
   const handleSubmit = async (email, password, userType) => {
     try {
@@ -18,15 +20,15 @@ const Login = () => {
         userType,
       });
 
-      // Aqui, você pode lidar com a resposta do backend, como salvar o token.
       if (response.data) {
+        realizarLogin(response.data); // Salva as informações do usuário no contexto
         if (userType === 'user') {
           navegacao('/vacinas');
         } else {
           navegacao('/home-operator');
         }
       } else {
-        alert('Erro ao fazer login. Verifique suas credenciais e tente novamente. Detalhe: Resposta do Backend sem corpo');
+        alert('Erro ao fazer login. Verifique suas credenciais e tente novamente.');
       }
     } catch (error) {
       alert('Erro ao fazer login. Verifique suas credenciais e tente novamente. Detalhe: ' + error.response?.data.message);

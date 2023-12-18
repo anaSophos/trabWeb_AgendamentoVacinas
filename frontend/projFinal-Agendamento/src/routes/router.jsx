@@ -11,6 +11,20 @@ import Login from '../pages/Login.jsx';
 import CadastrarOperator from '../pages/CadastrarOperator.jsx';
 import CadastrarVacina from '../pages/CadastrarVacina.jsx';
 import HomeTelaOperator from '../pages/HomeTelaOperator.jsx';
+import {Navigate} from 'react-router-dom'
+import {useSessaoUsuarioContext} from '../contexts/SessaoUsuario.jsx'
+//import AuthController from 'caminho-do-seu-controlador/AuthController';
+import { useAuthContext } from '../contexts/AuthContext.jsx';
+
+const RotaProtegida = ({ element }) => {
+  const { usuario } = useAuthContext();
+
+  if (usuario) {
+    return element;
+  } else {
+    return <Navigate to="/" />;
+  }
+};
 
 export const router = createBrowserRouter([
     {
@@ -19,8 +33,8 @@ export const router = createBrowserRouter([
     },
     {
         path: "/vacinas",
-        element: <VacinasBusca />,
-    },
+        element: <RotaProtegida element={<VacinasBusca />} />,
+      },
     {
         path: "/meus-agendamentos",
         element: <MyAgendamentos />,
