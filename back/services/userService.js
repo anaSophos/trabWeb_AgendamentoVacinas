@@ -15,7 +15,14 @@ export default class UserService {
   }
 
   static async createUser(userData) {
-    return UserRepository.createUser(userData);
+    const { name, email, password, rg, cpf, phoneNum, birth } = userData;
+
+    const existingUser = await UserRepository.getUserByEmail(email);
+    if (existingUser) {
+      throw new Error('User already exists');
+    }
+
+    return UserRepository.createUser({ name, email, password, rg, cpf, phoneNum, birth });
   }
 
   static async updateUser(userId, updatedData) {

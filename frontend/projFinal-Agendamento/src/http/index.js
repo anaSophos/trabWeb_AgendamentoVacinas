@@ -22,6 +22,7 @@ http.interceptors.request.use(function (config) {
 const rotasIgnoradasPelosErros = [
   'auth/login',
   'auth/refresh',
+  'user/create'
 ]
 
 const tentaRenovarToken = async () => {

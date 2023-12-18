@@ -10,6 +10,10 @@ export default class UserRepository {
     return User.findOne({ _id: userId }).exec();
   }
 
+  static async getUserByEmail(email) {
+    return User.findOne({ email }).exec();
+  }
+
   static async createUser(userData) {
     const { name, email, password, cpf, rg, phoneNum, birth } = userData;
 

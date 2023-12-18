@@ -15,10 +15,6 @@ function FormCadatrarVacina({}){
         <InputForm type={"text"} id={"description"} name={"description"} placeholder={"ex: Febre Amarela"}/>
       </div>
       <div className="mb-4">
-        <LabelForms htmlFor={"manufacturer"} children={"Fabricante:"}/>
-        <InputForm type={"text"} id={"manufacturer"} name={"manufacturer"} placeholder={"ex: Anvisa"}/>
-      </div>
-      <div className="mb-4">
         <LabelForms htmlFor={"qty"} children={"Quantidade:"}/>
         <InputForm type={"number"} id={"qty"} name={"qty"} placeholder={"ex: 10"}/>
       </div>

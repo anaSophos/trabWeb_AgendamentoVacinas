@@ -8,7 +8,7 @@ const CancelamentoAgendamento = () => {
     <>
     <Cabecalho/>
     <div className='py-[5%]'>
-    <ContainerValidacao children={'Agendamento cancelado com sucesso !'} childrenButton1={'Meus Agendamentos'} childrenButton2={'Voltar a tela inicial'}/>
+    <ContainerValidacao children={'Agendamento cancelado com sucesso !'} childrenButton1={'Meus Agendamentos'} direction1={'/meus-agendamentos'} childrenButton2={'Voltar a tela inicial'} />
     </div>
     <Rodape />
     </>

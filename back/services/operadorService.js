@@ -1,54 +1,56 @@
 import bcrypt from 'bcrypt';
-import Operator from '../models/Operator.js';
+import OperatorRepository from '../repositories/OperatorRepository.js';
 import Hospital from '../models/Hospital.js';
 
 export default class OperatorService {
+  static async getAllOperators() {
+    return OperatorRepository.getAllOperators();
+  }
 
-  static async createOperator(dto) {
-    const { name, email, password, hospital } = dto;
+  static async getOperatorById(operId) {
+    return OperatorRepository.getOperatorById(operId);
+  }
 
-    try {
-      // Verifique se o hospital existe
-      const existingHospital = await Hospital.findById(hospital);
-      if (!existingHospital) {
-        throw new Error('Hospital not found.');
-      }
+  static async createOperator(operatorData) {
+    const { name, email, password, hospital } = operatorData;
 
-      const salt = bcrypt.genSaltSync();
-      const hashedPassword = await bcrypt.hash(password, salt);
-
-      if (!name || !email || !password) {
-        throw new Error('Campos obrigatórios não fornecidos.');
-      }
-
-      const newOperator = {
-        name,
-        email,
-        password: hashedPassword,
-        hospital,
-      };
-
-      return Operator.create(newOperator);
-    } catch (error) {
-      throw error;
+    const existingOperator = await OperatorRepository.getOperatorByEmail(email);
+    if(existingOperator){
+      throw new Error('Operator already exists');
     }
+    const salt = bcrypt.genSaltSync();
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    operatorData.password = hashedPassword;
+    const operatorCreated = await OperatorRepository.createOperator(operatorData);
+
+    await Hospital.findByIdAndUpdate(hospital, { $push: { operators: operatorCreated._id } });
+
+    return operatorCreated;
   }
 
-  static async getOperators() {
-    return Operator.find();
+  static async updateOperator(operatorId, updateData) {
+    let operator = await OperatorRepository.getOperatorById(operatorId);
+
+    if (!operator) {
+      throw new Error('Operator not found');
+    }
+
+    if (updateData.name) operator.name = updateData.name;
+    if (updateData.email) operator.email = updateData.email;
+
+    return OperatorRepository.updateOperator(operator);
   }
 
-  static async getOperatorById(id) {
-    return Operator.findById(id);
-  }
+  static async deleteOperator(operId) {
+    let operator = await OperatorRepository.getOperatorById(operId);
 
-  static async updateOperator(id, updatedFields) {
-    return Operator.findByIdAndUpdate(id, updatedFields, { new: true });
-  }
+    if (!operator) {
+      throw new Error('Operator not found');
+    }
 
-  static async deleteOperator(id) {
-    return Operator.findByIdAndDelete(id);
+    await OperatorRepository.deleteOperator(operator);
+
+    return { message: 'Operator deleted' };
   }
 }
-
-export { OperatorService };

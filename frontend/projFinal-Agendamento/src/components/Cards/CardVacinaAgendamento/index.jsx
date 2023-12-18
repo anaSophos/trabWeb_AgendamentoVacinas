@@ -13,10 +13,6 @@ const CardVacina = ({nameVaccine, qtd, hospitalName, hospitalTime, childrenButto
           <img src='Imagens/iconPeople.svg' className='mr-3.5'/>
           <p>{qtd}</p> {/**qtd - qtd Agendados*/}
         </div>
-        <div className='flex flex-row pb-1'>
-          <img src='Imagens/iconClock.svg' className='mr-3.5'/>
-          <p>Horário previsto: {hospitalTime}</p>
-        </div>
         <div className='flex flex-row'>
           <img src='Imagens/iconMap.svg' className='mr-3.5'/>
           <p>Posto de saúde: {hospitalName}</p>
