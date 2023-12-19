@@ -93,16 +93,16 @@ const Login = () => {
       });
       console.log('response data', response.data._id)
   
+      const allUser = await buscarTodosUsuariosOuOperadores(userType)
+      const specificUser = allUser.find((user) => user.email === email);
+      realizarLogin({ ...response.data, userId: specificUser._id });
       if (response.data) {
         if (userType === 'user') {
           navegacao('/vacinas');
         } else {
           navegacao('/home-operator');
         }
-        const allUser = await buscarTodosUsuariosOuOperadores(userType)
-        const specificUser = allUser.find((user) => user.email === email);
-        console.log(specificUser._id)
-        realizarLogin({ ...response.data, userId: specificUser._id });
+        
       } else {
         alert('Erro ao fazer login. Verifique suas credenciais e tente novamente.');
       }
