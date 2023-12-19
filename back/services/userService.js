@@ -14,6 +14,10 @@ export default class UserService {
     return UserRepository.getUserById(userId);
   }
 
+  static async getUserByEmail(email) {
+    return UserRepository.getUserByEmail(email);
+  }
+
   static async createUser(userData) {
     const { name, email, password, rg, cpf, phoneNum, birth } = userData;
 

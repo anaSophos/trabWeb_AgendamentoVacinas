@@ -20,7 +20,7 @@ export default class HospitalController{
 
             if(!hosp) return res.status(404).json({'message': "Hosp not found"})
 
-            return res.status(302).json(hosp)
+            return res.status(200).json(hosp);
         }catch(e){
             res.status(500).json({'message': e.message })
         }

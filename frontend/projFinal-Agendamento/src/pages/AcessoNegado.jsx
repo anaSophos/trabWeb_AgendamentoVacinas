@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Cabecalho from '../components/Cabecalho/index.jsx';
+import Cabecalho from '../components/Cabecalho';
 import Rodape from '../components/Rodape/index.jsx';
 
 const AcessoNegado = () => {
   return (
     <>
-    <Cabecalho/>
+    <Cabecalho nav1={"Login"} urlNav1={"/login"} nav2={"Cadastro"} urlNav2={"/cadastrar-user"}/>
     <div className='py-[5%]'>
     <div className='w-[80%] h-[481px] bg-[#E8F1F3] m-auto border border-solid border-[#9fdfed] flex flex-col items-center'>
       <div className='m-auto grid justify-items-center'>

@@ -23,6 +23,15 @@ export default class UserController {
     }
   }
 
+  static async getUserByEmail(req, res) {
+    try {
+      const user = await UserService.getUserByEmail(req.params.email);
+      res.status(201).json(user);
+    } catch (e) {
+      res.status(404).json({ message: 'User not found' });
+    }
+  }
+
   static async createUser(req, res) {
     try {
       const newUser = await UserService.createUser(req.body);

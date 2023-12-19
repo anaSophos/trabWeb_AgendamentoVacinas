@@ -14,6 +14,7 @@ import HomeTelaOperator from '../pages/HomeTelaOperator.jsx';
 import {Navigate} from 'react-router-dom'
 import { useAuthContext } from '../contexts/AuthContext.jsx';
 import AcessoNegado from '../pages/AcessoNegado.jsx'
+import ConfirmeAgendamento from '../pages/ConfirmeAgendamento.jsx';
 
 const RotaProtegida = ({ element, isPrivate }) => {
     const { usuario } = useAuthContext();
@@ -76,4 +77,8 @@ export const router = createBrowserRouter([
         path: "/access-negado",
         element: <AcessoNegado />,
     },
+    {
+        path: "/confirmar/:userId/:idVac/:VacName/:hospitalName",
+        element: <RotaProtegida element={<ConfirmeAgendamento />} isPrivate />,
+      },
 ]);

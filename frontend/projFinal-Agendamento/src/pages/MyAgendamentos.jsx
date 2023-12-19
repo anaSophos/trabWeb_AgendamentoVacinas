@@ -7,7 +7,7 @@ import CardVacina from '../components/Cards/CardVacinaAgendamento/index.jsx';
 const MyAgendamentos = () => {
   return (
     <>
-    <Cabecalho/>
+    <Cabecalho nav1={"Consultar Vacinas"} urlNav1={"/vacinas"} nav2={"Meus Agendamentos"} urlNav2={"/meus-agendamentos"}/>
     <TituloPrincipal children={"Meus Agendamentos"}/>
     <div className=' w-[90%] m-auto flex-row flex justify-between flex-wrap mb-[5%]'>
         <CardVacina nameVaccine={'Covid-19'} qtd={`Quantidade agendada: ${1}`} hospitalTime={2} childrenButton={'CANCELAR'}/>

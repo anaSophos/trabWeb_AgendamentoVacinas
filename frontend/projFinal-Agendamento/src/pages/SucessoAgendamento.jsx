@@ -6,7 +6,7 @@ import ContainerValidacao from '../components/Container/ContainerValidacao/index
 const SucessoAgendamento = () => {
   return (
     <>
-    <Cabecalho/>
+    <Cabecalho nav1={"Consultar Vacinas"} urlNav1={"/vacinas"} nav2={"Meus Agendamentos"} urlNav2={"/meus-agendamentos"}/>
     <div className='py-[5%]'>
     <ContainerValidacao children={'Vacina agendada com sucesso !'} childrenButton1={'Meus Agendamentos'} childrenButton2={'Voltar a tela inicial'}/>
     </div>

@@ -8,7 +8,7 @@ import CardListOperator from '../components/Cards/CardListVacinaOperator/index.j
 const HomeTelaOperator = () => {
   return (
     <>
-    <Cabecalho/>
+    <Cabecalho nav1={"Login"} urlNav1={"/login"} nav2={"Cadastro"} urlNav2={"/cadastrar-user"}/>
     <div className='pt-[5%] flex flex-wrap flex-row'>
     <CardMenuOperator urlImagem={"/Imagens/iconPeople.svg"} childrenButton={"Cadastrar Operador"}/>
     <CardMenuOperator urlImagem={"/Imagens/iconSchedule.png"} childrenButton={"Agendar Vacina"}/>
