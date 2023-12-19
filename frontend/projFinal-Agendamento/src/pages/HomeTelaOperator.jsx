@@ -8,10 +8,10 @@ import CardListOperator from '../components/Cards/CardListVacinaOperator/index.j
 const HomeTelaOperator = () => {
   return (
     <>
-    <Cabecalho nav1={"Login"} urlNav1={"/login"} nav2={"Cadastro"} urlNav2={"/cadastrar-user"}/>
+    <Cabecalho inicio={"Menu"} urlInicio={"/home-operator"} nav1={"Cadastrar Operador"} urlNav1={"/cadastrar-operator"} nav2={"Cadastrar Vacina"} urlNav2={"/cadastrar-vacina"}/>
     <div className='pt-[5%] flex flex-wrap flex-row'>
-    <CardMenuOperator urlImagem={"/Imagens/iconPeople.svg"} childrenButton={"Cadastrar Operador"}/>
-    <CardMenuOperator urlImagem={"/Imagens/iconSchedule.png"} childrenButton={"Agendar Vacina"}/>
+    <CardMenuOperator urlImagem={"/Imagens/iconPeople.svg"} childrenButton={"Cadastrar Operador"} redirec={"/cadastrar-operator"}/>
+    <CardMenuOperator urlImagem={"/Imagens/iconCadastrarVac.png"} childrenButton={"Cadastrar Vacina"} redirec={"/cadastrar-vacina"}/>
     </div>
     <div className='pt-[5%] pb-[2%]'><Input type={'text'} placeholder={"Pesquise a vacina que você deseja encontrar"}/></div>
     <div className='pb-[5%]'>

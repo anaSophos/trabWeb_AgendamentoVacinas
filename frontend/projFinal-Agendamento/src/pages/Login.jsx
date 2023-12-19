@@ -130,7 +130,7 @@ const Login = () => {
 
   return (
     <>
-      <Cabecalho nav1={"Login"} urlNav1={"/login"} nav2={"Cadastro"} urlNav2={"/cadastrar-user"}/>
+      <Cabecalho inicio={"Inicio"} urlInicio={"/"} nav1={"Login"} urlNav1={"/login"} nav2={"Cadastro"} urlNav2={"/cadastrar-user"}/>
       <TituloPrincipal children={'Login no Sistema'} />
       <div className='pb-[5%]'>
         <FormLogin onSubmit={handleSubmit} />

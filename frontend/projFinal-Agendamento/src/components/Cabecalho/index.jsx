@@ -6,7 +6,7 @@ import logo from '../../assets/estadoPara.png';
 import IconUser from '../../assets/IconUser.svg';
 import { useAuthContext } from '../../contexts/AuthContext.jsx';
 
-function Cabecalho({nav1, urlNav1, nav2, urlNav2}) {
+function Cabecalho({inicio, urlInicio, nav1, urlNav1, nav2, urlNav2}) {
   const { realizarLogout } = useAuthContext();
   const [acordeonAberto, setAcordeonAberto] = useState(false);
 
@@ -26,8 +26,8 @@ function Cabecalho({nav1, urlNav1, nav2, urlNav2}) {
         <img src={logo} alt="Estado do Pará"></img>
       </Link>
       <nav className={styles.nav}>
-        <CabecalhoNav url={'/'}>
-          Inicio
+        <CabecalhoNav url={urlInicio}>
+          {inicio}
         </CabecalhoNav>
         <CabecalhoNav url={urlNav1}>
           {nav1}

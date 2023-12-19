@@ -5,7 +5,7 @@ import Rodape from '../components/Rodape/index.jsx';
 const AcessoNegado = () => {
   return (
     <>
-    <Cabecalho nav1={"Login"} urlNav1={"/login"} nav2={"Cadastro"} urlNav2={"/cadastrar-user"}/>
+    <Cabecalho/>
     <div className='py-[5%]'>
     <div className='w-[80%] h-[481px] bg-[#E8F1F3] m-auto border border-solid border-[#9fdfed] flex flex-col items-center'>
       <div className='m-auto grid justify-items-center'>

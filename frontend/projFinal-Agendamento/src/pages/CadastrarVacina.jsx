@@ -7,7 +7,7 @@ import FormCadatrarVacina from '../components/Forms/FormCadastrarVacina/index.js
 const CadastrarVacina = () => {
   return (
     <>
-    <Cabecalho nav1={"Login"} urlNav1={"/login"} nav2={"Cadastro"} urlNav2={"/cadastrar-user"}/>
+    <Cabecalho inicio={"Menu"} urlInicio={"/home-operator"} nav1={"Cadastrar Operador"} urlNav1={"/cadastrar-operator"} nav2={"Cadastrar Vacina"} urlNav2={"/cadastrar-vacina"}/>
     <TituloPrincipal children={"Cadastrar Vacina"}/>
     <div className='pb-[5%]'><FormCadatrarVacina/></div>
       <Rodape />
