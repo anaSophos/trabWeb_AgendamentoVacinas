@@ -4,35 +4,38 @@ import Button from '../../Button';
 import LabelForms from '../../Titulo/labelForms';
 import axios from 'axios';
 
-const FormAgendamento = ({ userId, vaccineId, vaccineName, hospitalName }) => {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Implemente a lógica de envio do formulário, incluindo os dados necessários (userId, vaccineId, vaccineName, hospitalName)
-    try {
-      await axios.post('http://localhost:3001/seu-endpoint-de-agendamento', {
-        userId,
-        vaccineId,
-        vaccineName,
-        hospitalName,
-        // Outros dados do formulário, se houver
-      });
-
-      // Lógica de redirecionamento ou feedback de sucesso, se necessário
-    } catch (error) {
-      // Tratar erros de requisição, se necessário
-    }
-  };
+const FormAgendamento = ({onSubmit, userId, vaccineId, vaccineName, hospitalName }) => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+      
+        const idVac = formData.get('idVac');
+        const userId = formData.get('idUser');
+        const qty = formData.get('qty');
+        onSubmit(userId, idVac, qty); 
+      };
 
   return (
     <form onSubmit={handleSubmit} className="w-[70%] bg-[#E8F1F3] border border-solid border-[#9fdfed] mx-auto p-6 rounded-[18px] flex flex-col justify-center shadow-md">
+      <h2 className="lg:text-[30px] sm:text-[20px] text-[16px] font-bold text-[#13293D] mt-auto mr-auto text-center mx-auto">
+        Nome da Vacina: {vaccineName}
+      </h2>
+      <h2 className="lg:text-[30px] sm:text-[20px] text-[16px] font-bold text-[#13293D] mt-auto mr-auto text-center mx-auto">
+        Posto de saúde: {hospitalName}
+      </h2>
       <div className="mb-4">
         <LabelForms htmlFor={"idVac"} children={"Vacina:"}/>
-        <InputForm type={"text"} id={"idVac"} name={"idVac"} defaultValue={vaccineId} readOnly />
+        <input type='text' id='idVac' name='idVac'
+            className='lg:text-[16px] text-[.8em] w-full h-[54px] px-4 py-2 border border-[#9fdfed] rounded-[18px] outline-none'
+            defaultValue={vaccineId} readOnly
+        ></input>
       </div>
       <div className="mb-4">
-        <LabelForms htmlFor={"idUser"} children={"Nome Completo:"}/>
-        <InputForm type={"text"} id={"idUser"} name={"idUser"} defaultValue={userId} readOnly />
+        <LabelForms htmlFor={"idUser"} children={"Usuário:"}/>
+        <input type='text' id='idUser' name='idUser'
+            className='lg:text-[16px] text-[.8em] w-full h-[54px] px-4 py-2 border border-[#9fdfed] rounded-[18px] outline-none'
+            defaultValue={userId} readOnly
+        ></input>
       </div>
       <div className="mb-4">
         <LabelForms htmlFor={"qty"} children={"Quantidade:"}/>
