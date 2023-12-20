@@ -4,26 +4,29 @@ import Button from '../../Button';
 import LabelForms from '../../Titulo/labelForms';
 import axios from 'axios';
 import { useAuthContext } from '../../../contexts/AuthContext.jsx';
+import { Link } from 'react-router-dom';
 
 function FormCadatrarVacina({onSubmit}){
   const { usuario } = useAuthContext();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
+    const name = event.target.name.value;
+    const description = event.target.description.value;
+    const qty = event.target.qty.value;
 
-    const name = formData.get('name');
-    const description = formData.get('description');
-    const qty = formData.get('qty');
-    const hospital = usuario.hospital
+    try {
+      const headers = {
+          Authorization: `Bearer ${usuario.token}`,
+      };
 
-    onSubmit(name, description, qty, hospital);
-  };
+      const response = await axios.post('http://localhost:3001/vac/create', { name, description, qty, provider:usuario.hospital }, { headers });
 
-  const handleInputBlur = () => {
-    setTimeout(() => {
-      setShowSuggestions(false);
-    }, 200);
+      onSubmit(name, description, qty, usuario.hospital);
+  } catch (error) {
+      console.error('Error creating vaccine: '+ error.response?.data.message);
+      alert("Erro ao cadastrar vacina no seu hospital. Detalhes:" + error.response?.data.message)
+  }
   };
 
   return (
@@ -40,22 +43,13 @@ function FormCadatrarVacina({onSubmit}){
         <LabelForms htmlFor={"qty"} children={"Quantidade:"}/>
         <InputForm type={"number"} id={"qty"} name={"qty"} placeholder={"ex: 10"}/>
       </div>
-      <div className="mb-4">
-        <LabelForms htmlFor={"hospital"} children={"Hospital:"}/>
-        <input
-          type={"text"}
-          id={"hospital"}
-          name={"hospital"}
-          value={usuario.hospital}
-          onChange={() => {}}
-          className='lg:text-[16px] text-[.8em] w-full h-[54px] px-4 py-2 border border-[#9fdfed] rounded-[18px] outline-none'
-        />
-      </div>
       <div className="mb-4 pl-[35%]">
         <Button type={"submit"} children={"CRIAR/ATUALIZAR"} colorButton={"bg-[#1C99E0]"} colorText={"text-[#FFFFFF]"}/>
       </div>
       <div className="mb-4 pl-[35%]">
+        <Link to={"/home-operator"}>
         <Button children={"CANCELAR"} colorButton={"bg-[#FCFEFF]"} colorText={"text-[#1C99E0]"}/>
+        </Link>
       </div>
     </form>
   );

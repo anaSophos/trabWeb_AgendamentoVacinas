@@ -7,25 +7,12 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../contexts/AuthContext.jsx';
 
 const CadastrarVacina = () => {
-  const { usuario } = useAuthContext();
-  const navegacao = useNavigate();
+  const navegate = useNavigate();
   const handleSubmit = async(name, description, qty, hospital) => {
-    try{
-      const response = await axios.post('http://localhost:3001/vac/create', {
-        name, 
-        description,
-        qty,
-        hospital:usuario.hospital,
-      })
-      console.log(response)
-      if (response.status === 201) {
-        alert('Vacina cadastrada com sucesso!');
-        navegacao('/cadastrar-vacina')
-      }
-    } catch (error){
-      alert('Erro ao cadastrar vacina. Detalhe: ' + error.response?.data.message)
-    }
-  }
+      console.log("vacina criada:", {name, description, qty, hospital})
+      alert("Vacina criada com sucesso!");
+      navegate('/cadastrar-vacina')
+  };
 
   return (
     <>
