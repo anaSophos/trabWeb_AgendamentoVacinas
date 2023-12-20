@@ -79,7 +79,7 @@ export const router = createBrowserRouter([
         element: <AcessoNegado />,
     },
     {
-        path: "/confirmar/:userId/:idVac/:VacName/:hospitalName",
+        path: "/confirmar/:idUser/:idVac/:VacName/:hospitalName",
         element: <RotaProtegida element={<ConfirmeAgendamento />} isPrivate />,
     },
     {

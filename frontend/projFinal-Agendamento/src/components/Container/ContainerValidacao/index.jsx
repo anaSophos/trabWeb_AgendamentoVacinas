@@ -16,7 +16,9 @@ function ContainerValidacao({children, childrenButton1, direction1, childrenButt
           </Link>
         </div>
         <div>
+          <Link to={direction2}>
           <Button children={childrenButton2} colorButton={'bg-[#FCFEFF]'} colorText={'text-[#13293D]'}/>
+          </Link>
         </div>
       </div>
     </div>

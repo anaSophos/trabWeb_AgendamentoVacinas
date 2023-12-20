@@ -95,7 +95,7 @@ const Login = () => {
   
       const allUser = await buscarTodosUsuariosOuOperadores(userType)
       const specificUser = allUser.find((user) => user.email === email);
-      realizarLogin({ ...response.data, userId: specificUser._id });
+      realizarLogin({ ...response.data, idUser: specificUser._id });
       if (response.data) {
         if (userType === 'user') {
           navegacao('/vacinas');

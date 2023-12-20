@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 const VacinasBusca = () => {
   const navigate = useNavigate();
   const { usuario } = useAuthContext();
-  const { userId } = useParams();
+  const { idUser } = useParams();
   const [vaccines, setVaccines] = useState([]);
   const [hospitals, setHospitals] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
@@ -74,8 +74,8 @@ const VacinasBusca = () => {
 
   const handleAgendarClick = (vaccineId, vaccineName, hospitalName) => {
     const formattedHospitalName = hospitalName.replace(/\s+/g, '_');
-    if (usuario && usuario.userId) {
-      navigate(`/confirmar/${usuario.userId}/${vaccineId}/${vaccineName}/${formattedHospitalName}`);
+    if (usuario && usuario.idUser) {
+      navigate(`/confirmar/${usuario.idUser}/${vaccineId}/${vaccineName}/${formattedHospitalName}`);
     } else {
       console.error('ID do usuário está indefinido ou nulo.');
     }

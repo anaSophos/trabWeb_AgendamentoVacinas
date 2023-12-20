@@ -5,17 +5,17 @@ import FormAgendamento from '../components/Forms/FormAgendamento/index.jsx';
 import { useParams } from 'react-router-dom';
 
 const ConfirmeAgendamento = () => {
-  const { userId, idVac, VacName, hospitalName } = useParams();
+  const { idUser, idVac, VacName, hospitalName } = useParams();
   const formattedHospitalName = hospitalName.replace(/_/g, ' ');
-  console.log(useParams())
-  const handleSubmit = async (idVac, userId, qty) => {
+  console.log("na confirmação", useParams())
+  const handleSubmit = async (idVac, idUser, qty) => {
     try {
       const response = await axios.post('http://localhost:3001/scheduling/create', {
         idVac,
-        idUser: userId, 
+        idUser, 
         qty,
       })
-      console.log(response.data)
+      console.log("confirme agen", response.data)
       if (response.status === 201) {
         alert('Agendamento realizado com sucesso!');
         //navegacao('/login')
@@ -30,7 +30,7 @@ const ConfirmeAgendamento = () => {
     <>
       <Cabecalho nav1={"Consultar Vacinas"} urlNav1={"/vacinas"} nav2={"Meus Agendamentos"} urlNav2={"/meus-agendamentos"}/>
       <div className='py-[5%]'>
-        <FormAgendamento onSubmit={handleSubmit} userId={userId} vaccineId={idVac} vaccineName={VacName} hospitalName={formattedHospitalName} />
+        <FormAgendamento onSubmit={handleSubmit} idUser={idUser} vaccineId={idVac} vaccineName={VacName} hospitalName={formattedHospitalName} />
       </div>
       <Rodape />
     </>
