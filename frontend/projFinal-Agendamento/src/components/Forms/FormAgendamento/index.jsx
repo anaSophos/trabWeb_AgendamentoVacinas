@@ -5,17 +5,12 @@ import LabelForms from '../../Titulo/labelForms';
 import axios from 'axios';
 
 const FormAgendamento = ({onSubmit, idUser, vaccineId, vaccineName, hospitalName }) => {
-    const [qty, setQty] = useState(1); // Adicionamos estado para a quantidade
 
     const handleSubmit = (event) => {
       event.preventDefault();
-      // Passamos idVac, idUser e qty diretamente
+      const qty = event.target.qty.value;
+      console.log(vaccineId, idUser, qty)
       onSubmit(vaccineId, idUser, qty);
-    };
-
-    const handleQtyChange = (event) => {
-      // Atualizamos o estado quando a quantidade muda
-      setQty(event.target.value);
     };
 
   return (
@@ -42,14 +37,7 @@ const FormAgendamento = ({onSubmit, idUser, vaccineId, vaccineName, hospitalName
       </div>
       <div className="mb-4">
         <LabelForms htmlFor={"qty"} children={"Quantidade:"} />
-        {/* Usamos o componente controlado para a entrada de quantidade */}
-        <InputForm
-          type={"number"}
-          id={"qty"}
-          name={"qty"}
-          value={qty}
-          onChange={handleQtyChange}
-        />
+        <input type="number" id="qty" name="qty" className='lg:text-[16px] text-[.8em] w-full h-[54px] px-4 py-2 border border-[#9fdfed] rounded-[18px] outline-none'></input>
       </div>
       <div className="mb-4 pl-[35%]">
         <Button

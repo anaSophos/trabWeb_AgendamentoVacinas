@@ -25,14 +25,11 @@ const VacinasBusca = () => {
       try {
         const response = await axios.get('http://localhost:3001/vac');
         setVaccines(response.data);
-        console.log("response data",response.data)
 
         const hospitalIds = response.data.map((vaccine) => vaccine.provider);
-        console.log("hospitalIds", hospitalIds)
         const hospitalDetailsPromises = hospitalIds.map(async (provider) => {
           try {
             const hospitalResponse = await axios.get(`http://localhost:3001/hosp/${provider}`);
-            console.log("response ", provider, hospitalResponse.data);
             return { [provider]:hospitalResponse };
           } catch (error) {
             console.error(`Error fetching hospital details for provider ${provider}:`, error);
@@ -43,7 +40,6 @@ const VacinasBusca = () => {
         const hospitalDetails = await Promise.all(hospitalDetailsPromises);
         const hospitalsObject = Object.assign({}, ...hospitalDetails);
         setHospitals(hospitalsObject);
-        console.log('hospitals', hospitalsObject);
       } catch (error) {
         console.error('Error fetching vaccines:', error);
       }
@@ -106,7 +102,6 @@ const VacinasBusca = () => {
       ) : (
         <p>Vacina não encontrada</p>
       )}
-        {console.log('hospitals', hospitals)}
       </div>
       {vaccines.length > 0 && currentVaccines.length < vaccines.length && (
         <div className='w-[90%]'>

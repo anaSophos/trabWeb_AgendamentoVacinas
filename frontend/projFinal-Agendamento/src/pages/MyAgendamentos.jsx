@@ -26,11 +26,9 @@ const MyAgendamentos = () => {
             setMeusAgendamentos(response.data);
 
             const vacIds = response.data.map((vac) => vac.idVac);
-            console.log("hospitalIds", vacIds)
             const vacDetailsPromises = vacIds.map(async (vac) => {
               try {
                 const vacResponse = await axios.get(`http://localhost:3001/vac/${vac}`);
-                console.log("response ", vac, vacResponse.data);
                 return { [vac]:vacResponse };
               } catch (error) {
                 console.error(`Error fetching hospital details for provider ${vac}:`, error);
@@ -41,7 +39,6 @@ const MyAgendamentos = () => {
             const vacDetails = await Promise.all(vacDetailsPromises);
             const vacsObject = Object.assign({}, ...vacDetails);
             setVacs(vacsObject);
-            console.log('vacs', vacsObject);
 
             const hospitalIds = Object.values(vacsObject).map((vaccine) => vaccine.provider);
                 console.log("hospitalIds", hospitalIds);
@@ -49,7 +46,6 @@ const MyAgendamentos = () => {
                 const hospitalDetailsPromises = hospitalIds.map(async (hospitalId) => {
                     try {
                         const hospitalResponse = await axios.get(`http://localhost:3001/hosp/${hospitalId}`);
-                        console.log("hospital response ", hospitalId, hospitalResponse.data);
                         return { [hospitalId]: hospitalResponse.data };
                     } catch (error) {
                         console.error(`Error fetching hospital details for ${hospitalId}:`, error);
@@ -60,7 +56,6 @@ const MyAgendamentos = () => {
                 const hospitalDetails = await Promise.all(hospitalDetailsPromises);
                 const hospitalsObject = Object.assign({}, ...hospitalDetails);
                 setHospitals(hospitalsObject);
-                console.log('hospitals', hospitalsObject);
         } catch (error) {
             console.error('Erro ao buscar agendamentos:', error);
         }

@@ -7,7 +7,6 @@ import { useParams } from 'react-router-dom';
 const ConfirmeAgendamento = () => {
   const { idUser, idVac, VacName, hospitalName } = useParams();
   const formattedHospitalName = hospitalName.replace(/_/g, ' ');
-  console.log("na confirmação", useParams())
   const handleSubmit = async (idVac, idUser, qty) => {
     try {
       const response = await axios.post('http://localhost:3001/scheduling/create', {
@@ -15,7 +14,6 @@ const ConfirmeAgendamento = () => {
         idUser, 
         qty,
       })
-      console.log("confirme agen", response.data)
       if (response.status === 201) {
         alert('Agendamento realizado com sucesso!');
         //navegacao('/login')

@@ -16,7 +16,6 @@ const CadastrarOperator = () => {
         password,
         hospital
       })
-      console.log(response.data)
       if (response.status === 201) {
         alert('Usuário Operador criado com sucesso!');
         navegacao('/login')

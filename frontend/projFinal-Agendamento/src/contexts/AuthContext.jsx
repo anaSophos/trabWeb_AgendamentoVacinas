@@ -7,8 +7,8 @@ export const AuthProvider = ({ children }) => {
   
     const realizarLogin = (dadosUsuario) => {
       setUsuario(dadosUsuario);
+      console.log(dadosUsuario)
     };
-    console.log("realizar login", usuario)
   
     const realizarLogout = () => {
       setUsuario(null);
