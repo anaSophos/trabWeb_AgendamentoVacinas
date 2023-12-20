@@ -57,7 +57,7 @@ router.use(Authenticated.checkToken)
 
 router.get('/', SchedulingController.getScheduling)
 router.get('/:schedulingId', SchedulingController.getSchedulingById)
-router.post('/create/:idUser/:idVac', SchedulingController.createScheduling)
+router.post('/create', SchedulingController.createScheduling)
 router.put('/edit/:schedulingId', SchedulingController.updateScheduling)
 router.delete('/delete/:schedulingId', SchedulingController.deleteScheduling)
 router.get('/user/:idUser', SchedulingController.getSchedulingByUserId)
