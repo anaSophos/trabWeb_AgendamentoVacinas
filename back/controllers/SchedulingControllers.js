@@ -39,7 +39,8 @@ export default class SchedulingController{
 
     static async createScheduling(req,res){
         try{
-            const {idUser, idVac, qty} = req.body
+            const {idUser, idVac} = req.params
+            const {qty} = req.body
 
             const newSchedule = {
                 idUser,
