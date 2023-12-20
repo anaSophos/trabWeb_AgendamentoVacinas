@@ -1,4 +1,4 @@
-import express from 'express';
+/*import express from 'express';
 import SchedulingController from '../../controllers/SchedulingControllers.js';
 import Authenticated from '../../middleware/authenticated.js';
 
@@ -46,8 +46,8 @@ router.delete('/delete/:schedulingId', (req, res) => {
     }
 });
 
-export default router;
-/*import express from 'express'
+export default router;*/
+import express from 'express'
 import SchedulingController from '../../controllers/SchedulingControllers.js'
 import Authenticated from '../../middleware/authenticated.js'
 
@@ -60,5 +60,6 @@ router.get('/:schedulingId', SchedulingController.getSchedulingById)
 router.post('/create', SchedulingController.createScheduling)
 router.put('/edit/:schedulingId', SchedulingController.updateScheduling)
 router.delete('/delete/:schedulingId', SchedulingController.deleteScheduling)
+router.get('/user/:idUser', SchedulingController.getSchedulingByUserId)
 
-export default router*/
+export default router

@@ -13,14 +13,6 @@ const shcSchema = new Schema({
         ref: "User",
         required: true
     },
-    time:{
-        type: String,
-        required: true
-    },
-    data:{
-        type: Date,
-        required: true
-    },
     qty:{
         type: Number,
         required: true

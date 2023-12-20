@@ -27,16 +27,24 @@ export default class SchedulingController{
         }
     }
 
+    static async getSchedulingByUserId(req, res){
+        try{
+            const schedules = await Scheduling.find({ idUser: req.params.idUser }).exec()
+            res.status(200).json(schedules)
+        }catch(e){
+            res.status(500).json({'message': e.message })
+        }
+    }
+
 
     static async createScheduling(req,res){
         try{
-            const {idUser, idVac, data, time} = req.body
+            const {idUser, idVac, qty} = req.body
 
             const newSchedule = {
                 idUser,
                 idVac,
-                data,
-                time 
+                qty, 
             }
 
             const scheduleCreated = await Scheduling.create(newSchedule)
@@ -59,8 +67,7 @@ export default class SchedulingController{
 
             if (req.body?.idUser) schedule.idUser = req.body.idUser;
             if (req.body?.idVac) schedule.idVac = req.body.idVac;
-            if (req.body?.data) schedule.data = req.body.data;
-            if (req.body?.time) schedule.time = req.body.time;
+            if (req.body?.qty) schedule.data = req.body.qty;
 
             const scheduleUpdat = await schedule.save()
 
