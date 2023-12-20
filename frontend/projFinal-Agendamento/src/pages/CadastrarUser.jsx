@@ -19,7 +19,6 @@ const CadastrarUser = () => {
         birth,
         password,
       })
-      console.log(response.data)
       if (response.status === 201) {
         alert('Usuário criado com sucesso!');
         navegacao('/login')

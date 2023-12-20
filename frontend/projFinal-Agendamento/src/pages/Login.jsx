@@ -22,11 +22,12 @@ const Login = () => {
   
       const allUser = await buscarTodosUsuariosOuOperadores(userType)
       const specificUser = allUser.find((user) => user.email === email);
-      realizarLogin({ ...response.data, idUser: specificUser._id, userType: userType });
       if (response.data) {
         if (userType === 'user') {
+          realizarLogin({ ...response.data, idUser: specificUser._id, userType: userType });
           navegacao('/vacinas');
         } else {
+          realizarLogin({ ...response.data, idUser: specificUser._id, userType: userType, hospital: specificUser.hospital});
           navegacao('/home-operator');
         }
         
