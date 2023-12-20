@@ -28,11 +28,16 @@ export default class VaccineController {
     static async createVac(req, res) {
         try {
             const { name, description, qty, provider } = req.body 
-
+            
             if (!name || !description || !qty || !provider) {
                 return res.status(400).json({ 'message': "Id" })
             }
 
+            const existingVac = await Vaccine.findOne({ name: req.body.name }).exec();
+
+            if (existingVac) {
+                return res.status(400).json({ 'message': 'Vacine with this name already exists for the provider.' });
+            } else{
             const newVac = {
                 name,
                 description,
@@ -45,6 +50,7 @@ export default class VaccineController {
             await Hospital.findByIdAndUpdate(provider, { $push: { vaccines: vacCreated._id } })
 
             return res.status(201).json(vacCreated)
+        }
         } catch (e) {
             res.status(500).json({ 'message': e.message })
         }
