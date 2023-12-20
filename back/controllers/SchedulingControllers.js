@@ -49,7 +49,7 @@ export default class SchedulingController{
 
             const scheduleCreated = await Scheduling.create(newSchedule)
 
-            await Vaccine.findByIdAndUpdate(idVac, { $push: { schedules: scheduleCreated._id } })
+            await Vaccine.findByIdAndUpdate(idVac, { $inc: { qty: -qty } });
             await User.findByIdAndUpdate(idUser, { $push: { schedules: scheduleCreated._id } })
 
             return res.status(201).json(scheduleCreated)
@@ -84,6 +84,8 @@ export default class SchedulingController{
 
             if(!schedule) return res.status(404).json({'message': "Schedule not found"})
 
+            await Vaccine.findByIdAndUpdate(schedule.idVac, { $inc: { qty: schedule.qty } });
+            
             await Scheduling.deleteOne(schedule)
 
             return res.status(200).json({"message": "Schedule deleted"})
